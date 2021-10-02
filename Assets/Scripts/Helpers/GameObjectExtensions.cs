@@ -64,4 +64,17 @@ public static class GameObjectExtensions
         return obj;
     }
     #endregion
+
+    #region parent
+    public static GameObject GetTopmostParent(this GameObject instance)
+    {
+        Transform topParent = instance.transform.parent;
+        while(topParent != null)
+        {
+            topParent = topParent.transform.parent;
+        }
+
+        return topParent.gameObject;
+    }
+    #endregion
 }
