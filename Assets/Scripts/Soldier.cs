@@ -14,12 +14,14 @@ public class Soldier : MonoBehaviour
     float m_coolDownTimeSeconds = 2.0f;
     [SerializeField]
     Vector3 m_fireFromLocalPosition = Vector3.zero;
-    [SerializeField] [Range(10.0f, 500.0f)]
+    [SerializeField] [Range(10.0f, 1000.0f)]
     float m_fireForce = 10.0f;
     [SerializeField]
     Projectile m_projectilePrefab = null;
     [SerializeField]
     Color m_deathColor = Color.gray;
+    [SerializeField][Range(0.0f, 1.0f)]
+    float m_forceDefenceScale = 0.0f;
     #endregion
 
     #region variables
@@ -27,6 +29,8 @@ public class Soldier : MonoBehaviour
 
     Material[] m_materials = null;
     Color m_baseColor;
+
+    Rigidbody m_rigidbody;
 
     bool m_isDead = false;
 
@@ -41,6 +45,8 @@ public class Soldier : MonoBehaviour
     {
         m_materials = this.GetComponentsInChildren<MeshRenderer>().Select((x) => x.material).ToArray();
         m_baseColor = m_materials[0].color;
+
+        m_rigidbody = this.GetComponent<Rigidbody>();
     }
     private void Start()
     {
@@ -127,6 +133,11 @@ public class Soldier : MonoBehaviour
         {
             m.color = color;
         }
+    }
+
+    public void ApplyForce(Vector3 force, Vector3 position)
+    {
+        this.m_rigidbody.AddForceAtPosition(force * (1.0f - m_forceDefenceScale), position);
     }
     #endregion
 }
