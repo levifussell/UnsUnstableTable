@@ -57,13 +57,20 @@ public class Projectile : MonoBehaviour
         if (this.m_isDead || other.gameObject.GetTopmostParent() == m_parentSource)
             return;
 
+        Vector3 force = this.transform.forward * m_fireForce;
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if(rb != null)
         {
-            rb.AddForceAtPosition(this.transform.forward * m_fireForce, this.transform.position);
+            Soldier soldier = rb.GetComponent<Soldier>();
+            if (soldier != null)
+                soldier.ApplyForce(force, this.transform.position);
+            else
+                rb.AddForceAtPosition(force, this.transform.position);
         }
 
         StartCoroutine(WaitForParticlesAndDie());
+
+        ProjectileDeathManager.Instance.RegisterNewProjectileDeath(force, this.transform.position);
     }
     #endregion
 

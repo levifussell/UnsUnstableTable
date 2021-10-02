@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2088767996505060941}
   - component: {fileID: 2088767996505060940}
   - component: {fileID: 2088767996505060947}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 2088767996727816369}
   - component: {fileID: 2088767996727816368}
   - component: {fileID: 2088767996727816375}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 2088767998068440130}
   - component: {fileID: 2088767998068440129}
   - component: {fileID: 2088767998068440128}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SoldierRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,6 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_coolDownTimeSeconds: 5
   m_fireFromLocalPosition: {x: 0, y: 0, z: 0}
-  m_fireForce: 200
+  m_fireForce: 700
   m_projectilePrefab: {fileID: -7868315024324249520, guid: 4cb33e1fe19f3414488f87335365929f,
     type: 3}
+  m_deathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

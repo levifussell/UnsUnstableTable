@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6671114184970141422}
   - component: {fileID: 6671114184970141423}
   - component: {fileID: 6671114184970141200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 6671114185019015143}
   - component: {fileID: 6671114185019015144}
   - component: {fileID: 6671114185019015139}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SoldierBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,9 +221,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_coolDownTimeSeconds: 5
   m_fireFromLocalPosition: {x: 0, y: 0, z: 0}
-  m_fireForce: 200
+  m_fireForce: 700
   m_projectilePrefab: {fileID: -7868315024324249520, guid: 4cb33e1fe19f3414488f87335365929f,
     type: 3}
+  m_deathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &6671114185545019722
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +237,7 @@ GameObject:
   - component: {fileID: 6671114185545019718}
   - component: {fileID: 6671114185545019719}
   - component: {fileID: 6671114185545019720}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
