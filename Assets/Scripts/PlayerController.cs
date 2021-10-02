@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Vector3 TABLE_CENTER = Vector3.zero;
+
     #region parameters
     [SerializeField][Range(0.0f, 10.0f)]
     float m_controlRate = 1.0f;
@@ -17,10 +19,16 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] [Range(0.0f, 1.0f)]
     float m_cursorFloorOffset = 0.01f;
+
+    [SerializeField] [Range(0.0f, 1.0f)]
+    float m_cameraMoveScaleForward = 0.2f;
+    [SerializeField] [Range(0.0f, 1.0f)]
+    float m_cameraMoveScaleSideways = 0.05f;
     #endregion
 
     #region variables
     Camera m_camera;
+    Vector3 m_cameraInitPosition;
     GameObject m_controlCursor;
     GameObject m_pivotCursor;
     bool m_stickToggle = false;
@@ -51,6 +59,7 @@ public class PlayerController : MonoBehaviour
         m_camera = this.GetComponentInChildren<Camera>();
         if (m_camera == null)
             Debug.LogError("Player is mmissing a camera!");
+        m_cameraInitPosition = m_camera.transform.position;
 
         m_controlCursor = GameObject.Instantiate(m_controlCursorPrefab);
         m_pivotCursor = GameObject.Instantiate(m_controlCursorPrefab);
@@ -77,6 +86,16 @@ public class PlayerController : MonoBehaviour
             m_controlCursor.transform.position = m_currentControlPoint;
             m_controlStick.SetTargetStickGroundPosition(m_currentControlPoint.x, m_currentControlPoint.z);
         }
+
+        // move the camera
+
+        Vector3 cameraDrift = (m_controlCursor.transform.position - TABLE_CENTER);
+        cameraDrift.x *= m_cameraMoveScaleSideways;
+        cameraDrift.y *= m_cameraMoveScaleSideways;
+        cameraDrift.z *= m_cameraMoveScaleForward;
+        m_camera.transform.position = m_cameraInitPosition + cameraDrift;
+
+        // inputs.
 
         if (Input.GetMouseButtonDown(0))
             m_onMouseLeftDown?.Invoke();

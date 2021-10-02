@@ -54,7 +54,7 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (this.m_isDead || other.gameObject == m_parentSource)
+        if (this.m_isDead || other.gameObject.GetTopmostParent() == m_parentSource)
             return;
 
         Rigidbody rb = other.GetComponent<Rigidbody>();

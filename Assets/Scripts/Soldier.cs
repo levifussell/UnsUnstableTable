@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEditor;
 
 public class Soldier : MonoBehaviour
 {
     const float FIRE_RANGE = 100.0f;
+    const float DEATH_MARGIN = 0.5f;
 
     #region parameters
     [SerializeField] [Range(1.0f, 10.0f)]
@@ -16,10 +18,17 @@ public class Soldier : MonoBehaviour
     float m_fireForce = 10.0f;
     [SerializeField]
     Projectile m_projectilePrefab = null;
+    [SerializeField]
+    Color m_deathColor = Color.gray;
     #endregion
 
     #region variables
     float m_coolDownCounter = 0.0f;
+
+    Material[] m_materials = null;
+    Color m_baseColor;
+
+    bool m_isDead = false;
 
     Vector3 fireFromGlobalPosition
     {
@@ -28,6 +37,11 @@ public class Soldier : MonoBehaviour
     #endregion
 
     #region builtins
+    private void Awake()
+    {
+        m_materials = this.GetComponentsInChildren<MeshRenderer>().Select((x) => x.material).ToArray();
+        m_baseColor = m_materials[0].color;
+    }
     private void Start()
     {
         StartCoroutine(WaitAndFire());
@@ -36,6 +50,23 @@ public class Soldier : MonoBehaviour
     void Update()
     {
         m_coolDownCounter += Time.deltaTime;
+
+        if (IsFallenOver())
+        {
+            if(!m_isDead)
+            {
+                m_isDead = true;
+                SetMaterialsColor(m_deathColor);
+            }
+        }
+        else
+        {
+            if(m_isDead)
+            {
+                m_isDead = false;
+                SetMaterialsColor(m_baseColor);
+            }
+        }
     }
 
     private void OnDrawGizmos()
@@ -54,7 +85,10 @@ public class Soldier : MonoBehaviour
             yield return new WaitForSeconds(m_coolDownTimeSeconds);
             m_coolDownCounter = 0.0f;
 
-            FireForward();
+            if (!m_isDead)
+            {
+                FireForward();
+            }
         }
     }
 
@@ -80,6 +114,19 @@ public class Soldier : MonoBehaviour
         //    Debug.DrawRay(this.fireFromGlobalPosition, this.transform.forward * FIRE_RANGE, Color.green, 1.0f);
         //}
 
+    }
+
+    bool IsFallenOver()
+    {
+        return Vector3.Dot(this.transform.up, Vector3.up) < DEATH_MARGIN;
+    }
+
+    void SetMaterialsColor(Color color)
+    {
+        foreach(Material m in m_materials)
+        {
+            m.color = color;
+        }
     }
     #endregion
 }
