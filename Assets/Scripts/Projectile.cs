@@ -54,11 +54,12 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (this.m_isDead || other.gameObject.GetTopmostParent() == m_parentSource)
+        GameObject topParent = other.gameObject.GetTopmostParent();
+        if (this.m_isDead || topParent == m_parentSource)
             return;
 
         Vector3 force = this.transform.forward * m_fireForce;
-        Rigidbody rb = other.GetComponent<Rigidbody>();
+        Rigidbody rb = topParent.GetComponent<Rigidbody>();
         if(rb != null)
         {
             Soldier soldier = rb.GetComponent<Soldier>();
