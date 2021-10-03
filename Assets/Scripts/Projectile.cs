@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
     float m_fireForce = 200.0f;
     GameObject m_parentSource = null;
     float m_timeToDeath = 5.0f;
+    [SerializeField]
+    Vector3 m_initVelocity = Vector3.zero;
     #endregion
 
     #region variables
@@ -24,7 +26,8 @@ public class Projectile : MonoBehaviour
         Vector3 position, 
         Quaternion orientation, 
         float speed, 
-        float fireForce)
+        float fireForce,
+        Vector3 initVelocity)
     {
         Projectile newProjectile = GameObject.Instantiate(prefab);
         newProjectile.m_parentSource = parentSource;
@@ -32,6 +35,7 @@ public class Projectile : MonoBehaviour
         newProjectile.transform.rotation = orientation;
         newProjectile.m_speed = speed;
         newProjectile.m_fireForce = fireForce;
+        newProjectile.m_initVelocity = initVelocity;
         return newProjectile;
     }
 
@@ -39,17 +43,19 @@ public class Projectile : MonoBehaviour
     void Awake()
     {
         m_particleSystem = this.GetComponent<ParticleSystem>();
+
+        ProjectileDeathManager.Instance.RegisterNewProjectile(this);
     }
 
     // Update is called once per frame 
     void Update()
     {
-        this.transform.position += this.transform.forward * this.m_speed * Time.deltaTime;
+        this.transform.position += (this.m_initVelocity + this.transform.forward * this.m_speed) * Time.deltaTime;
 
         this.m_timeToDeath -= Time.deltaTime;
         if (!this.m_isDead && this.m_timeToDeath <= 0.0f)
         {
-            StartCoroutine(WaitForParticlesAndDie());
+            DestroyWithSmokeTrail();
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -69,15 +75,18 @@ public class Projectile : MonoBehaviour
                 rb.AddForceAtPosition(force, this.transform.position);
         }
 
-        StartCoroutine(WaitForParticlesAndDie());
+        DestroyWithSmokeTrail();
 
-        ProjectileDeathManager.Instance.RegisterNewProjectileDeath(force, this.transform.position);
+        ProjectileDeathManager.Instance.RegisterNewProjectileDeath(this, force, this.transform.position);
     }
     #endregion
 
     #region controls
     IEnumerator WaitForParticlesAndDie()
     {
+        if (this.m_isDead)
+            yield return null;
+
         while(true)
         {
             if(!this.m_isDead)
@@ -100,6 +109,13 @@ public class Projectile : MonoBehaviour
             {
                 yield return new WaitForEndOfFrame();
             }
+        }
+    }
+    public void DestroyWithSmokeTrail()
+    {
+        if(!this.m_isDead)
+        {
+            StartCoroutine(WaitForParticlesAndDie());
         }
     }
     #endregion

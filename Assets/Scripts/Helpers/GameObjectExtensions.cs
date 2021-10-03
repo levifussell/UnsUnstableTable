@@ -76,5 +76,15 @@ public static class GameObjectExtensions
 
         return topParent.gameObject;
     }
+
+    public static void SetLayerRecursive(this GameObject instance, int layer)
+    {
+        instance.layer = layer;
+
+        foreach(Transform child in instance.transform)
+        {
+            child.gameObject.SetLayerRecursive(layer);
+        }
+    }
     #endregion
 }

@@ -5,22 +5,26 @@ using UnityEngine;
 
 public class ProjectileDeathManager : Singleton<ProjectileDeathManager>
 {
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
+    List<Projectile> m_liveProjectiles = new List<Projectile>();
 
     public Action<Vector3, Vector3> onProjectileDeath;
 
-    public void RegisterNewProjectileDeath(Vector3 force, Vector3 position)
+    public void RegisterNewProjectile(Projectile projectile)
     {
+        m_liveProjectiles.Add(projectile);
+    }
+
+    public void RegisterNewProjectileDeath(Projectile projectile, Vector3 force, Vector3 position)
+    {
+        m_liveProjectiles.Remove(projectile);
         onProjectileDeath?.Invoke(force, position);
+    }
+
+    public void DestroyAllProjectiles()
+    {
+        foreach(Projectile p in m_liveProjectiles)
+        {
+            p.DestroyWithSmokeTrail();
+        }
     }
 }

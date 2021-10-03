@@ -28,12 +28,16 @@ public class Soldier : MonoBehaviour
 
     #region variables
     float m_coolDownCounter = 0.0f;
+    RingTimer m_ringTimer = null;
 
     Material[] m_materials = null;
     Color m_baseColor;
 
     Rigidbody m_rigidbody;
 
+    int m_layerInit;
+
+    bool is_warmup = true;
     bool m_isDead = false;
 
     Vector3 fireFromGlobalPosition
@@ -49,6 +53,14 @@ public class Soldier : MonoBehaviour
         m_baseColor = m_materials[0].color;
 
         m_rigidbody = this.GetComponent<Rigidbody>();
+
+        m_ringTimer = this.GetComponentInChildren<RingTimer>();
+        if(m_ringTimer != null)
+        {
+            this.m_ringTimer.m_ringTimer = this.m_coolDownTimeSeconds;
+        }
+
+        m_layerInit = this.gameObject.layer;
     }
     private void Start()
     {
@@ -62,12 +74,18 @@ public class Soldier : MonoBehaviour
     {
         m_coolDownCounter += Time.deltaTime;
 
+        if (m_ringTimer != null && !is_warmup)
+            m_ringTimer.SetTime(m_coolDownCounter);
+
         if (IsFallenOver())
         {
             if(!m_isDead)
             {
                 m_isDead = true;
+                this.gameObject.SetLayerRecursive(0);
                 SetMaterialsColor(m_deathColor);
+                if (m_ringTimer != null)
+                    m_ringTimer.gameObject.SetActive(false);
             }
         }
         else
@@ -75,7 +93,10 @@ public class Soldier : MonoBehaviour
             if(m_isDead)
             {
                 m_isDead = false;
+                this.gameObject.SetLayerRecursive(m_layerInit);
                 SetMaterialsColor(m_baseColor);
+                if (m_ringTimer != null)
+                    m_ringTimer.gameObject.SetActive(true);
             }
         }
     }
@@ -91,10 +112,13 @@ public class Soldier : MonoBehaviour
     #region control
     IEnumerator WaitAndFire()
     {
-        while(true)
+        yield return new WaitForSeconds(Random.Range(0.0f, this.m_coolDownTimeSeconds));
+        is_warmup = false;
+
+        while (true)
         {
-            yield return new WaitForSeconds(m_coolDownTimeSeconds);
             m_coolDownCounter = 0.0f;
+            yield return new WaitForSeconds(m_coolDownTimeSeconds);
 
             if (!m_isDead)
             {
@@ -105,7 +129,7 @@ public class Soldier : MonoBehaviour
 
     void FireForward()
     {
-        Projectile.SpawnFromPrefab(m_projectilePrefab, this.gameObject, this.fireFromGlobalPosition, this.transform.rotation, 3.0f, m_fireForce);
+        Projectile.SpawnFromPrefab(m_projectilePrefab, this.gameObject, this.fireFromGlobalPosition, this.transform.rotation, 3.0f, m_fireForce, this.m_rigidbody.velocity);
 
         //if(Physics.Raycast(this.fireFromGlobalPosition, this.transform.forward, out RaycastHit hitInfo, FIRE_RANGE, ~0, QueryTriggerInteraction.Ignore))
         //{
