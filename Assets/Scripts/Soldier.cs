@@ -22,6 +22,8 @@ public class Soldier : MonoBehaviour
     Color m_deathColor = Color.gray;
     [SerializeField][Range(0.0f, 1.0f)]
     float m_forceDefenceScale = 0.0f;
+    [SerializeField]
+    bool m_canShoot = true;
     #endregion
 
     #region variables
@@ -50,7 +52,10 @@ public class Soldier : MonoBehaviour
     }
     private void Start()
     {
-        StartCoroutine(WaitAndFire());
+        if(m_canShoot)
+        {
+            StartCoroutine(WaitAndFire());
+        }
     }
     // Update is called once per frame
     void Update()

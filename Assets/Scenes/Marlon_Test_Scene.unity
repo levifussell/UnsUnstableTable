@@ -5168,6 +5168,7 @@ GameObject:
   - component: {fileID: 1458723594}
   - component: {fileID: 1458723593}
   - component: {fileID: 1458723592}
+  - component: {fileID: 1458723597}
   m_Layer: 0
   m_Name: NK_Soldier_ShieldCarrier
   m_TagString: Untagged
@@ -5279,6 +5280,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1458723597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458723591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3144b61f10f9444b5d9e8d30782490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_coolDownTimeSeconds: 2
+  m_fireFromLocalPosition: {x: 0, y: 0, z: 0}
+  m_fireForce: 10
+  m_projectilePrefab: {fileID: 0}
+  m_deathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_forceDefenceScale: 0
+  m_canShoot: 0
 --- !u!1 &1523254165
 GameObject:
   m_ObjectHideFlags: 0
@@ -6342,6 +6362,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoldierNK_Rocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474542785013419871, guid: 59a830e2819a66b4bb3a42f9b5aa8c82,
+        type: 3}
+      propertyPath: m_forceDefenceScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59a830e2819a66b4bb3a42f9b5aa8c82, type: 3}
