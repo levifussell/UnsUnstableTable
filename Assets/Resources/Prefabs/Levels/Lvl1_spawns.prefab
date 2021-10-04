@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4167523616504263446
+--- !u!1 &532663081998515053
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4167523616504263441}
-  - component: {fileID: 4167523616504263440}
+  - component: {fileID: 532663081998515050}
+  - component: {fileID: 532663081998515051}
   m_Layer: 0
   m_Name: rebels
   m_TagString: Untagged
@@ -17,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4167523616504263441
+--- !u!4 &532663081998515050
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167523616504263446}
+  m_GameObject: {fileID: 532663081998515053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.06948686, y: 0, z: -1.6727308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4167523618274898240}
+  m_Father: {fileID: 532663082441685307}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4167523616504263440
+--- !u!114 &532663081998515051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167523616504263446}
+  m_GameObject: {fileID: 532663081998515053}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
@@ -50,7 +50,7 @@ MonoBehaviour:
   soldierFlagPrefab: {fileID: 5050034220012141258, guid: 8fe4ce601308aa241b29ce5afe115997,
     type: 3}
   soldierGunSpawnPoints:
-  - {x: -0.20231947, y: 0, z: -0.23707652}
+  - {x: -0.20231947, y: 0, z: 0.49}
   soldierGunSpawnRotations:
   - {x: 0, y: 0, z: 0, w: 1}
   soldierShieldSpawnPoints: []
@@ -59,7 +59,7 @@ MonoBehaviour:
   soldierFlagSpawnRotations: []
   isPlayer: 1
   m_spawnedSoldiers: []
---- !u!1 &4167523617952686477
+--- !u!1 &532663082085460470
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,8 +67,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4167523617952686476}
-  - component: {fileID: 4167523617952686479}
+  - component: {fileID: 532663082085460471}
+  - component: {fileID: 532663082085460468}
   m_Layer: 0
   m_Name: kims
   m_TagString: Untagged
@@ -76,27 +76,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4167523617952686476
+--- !u!4 &532663082085460471
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167523617952686477}
+  m_GameObject: {fileID: 532663082085460470}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029206271}
   m_LocalPosition: {x: 0.33, y: 0, z: 4.165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4167523618274898240}
+  m_Father: {fileID: 532663082441685307}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
---- !u!114 &4167523617952686479
+--- !u!114 &532663082085460468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167523617952686477}
+  m_GameObject: {fileID: 532663082085460470}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
@@ -109,18 +109,18 @@ MonoBehaviour:
   soldierFlagPrefab: {fileID: 5503666464139557486, guid: 938c4450a555df54d87d410b9da9e405,
     type: 3}
   soldierGunSpawnPoints:
-  - {x: 0.5368005, y: 0, z: 5.106807}
+  - {x: 1.6921482, y: 0, z: 3.8633337}
   soldierGunSpawnRotations:
-  - {x: 0, y: -0.64121425, z: 0, w: 0.7673619}
+  - {x: 0, y: -0.73, z: 0, w: 0.99993855}
   soldierShieldSpawnPoints: []
   soldierShieldSpawnRotations: []
   soldierFlagSpawnPoints:
-  - {x: 1.295015, y: 0, z: 1.8045927}
+  - {x: 1.2383821, y: 0, z: 1.3706509}
   soldierFlagSpawnRotations:
   - {x: 0, y: 0.99983823, z: 0, w: -0.01798704}
   isPlayer: 0
   m_spawnedSoldiers: []
---- !u!1 &4167523618274898241
+--- !u!1 &532663082441685306
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4167523618274898240}
+  - component: {fileID: 532663082441685307}
   m_Layer: 0
   m_Name: Lvl1_spawns
   m_TagString: Untagged
@@ -136,19 +136,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4167523618274898240
+--- !u!4 &532663082441685307
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4167523618274898241}
+  m_GameObject: {fileID: 532663082441685306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0, z: -0.39}
+  m_LocalPosition: {x: -0.005, y: 0, z: 0.021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4167523616504263441}
-  - {fileID: 4167523617952686476}
+  - {fileID: 532663081998515050}
+  - {fileID: 532663082085460471}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
