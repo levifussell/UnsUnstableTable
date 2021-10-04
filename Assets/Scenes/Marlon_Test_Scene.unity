@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.85
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.41373792, g: 0.46030885, b: 0.53358006, a: 0.85}
+  m_IndirectSpecularColor: {r: 0.41373846, g: 0.4603098, b: 0.5335809, a: 0.85}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11574,7 +11574,7 @@ PrefabInstance:
     - target: {fileID: 6813132246486960220, guid: b9ac703b1db18374fa14da1b719418e5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6813132246486960221, guid: b9ac703b1db18374fa14da1b719418e5,
         type: 3}
@@ -11589,7 +11589,7 @@ PrefabInstance:
     - target: {fileID: 6813132246486960221, guid: b9ac703b1db18374fa14da1b719418e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.84
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6813132246486960221, guid: b9ac703b1db18374fa14da1b719418e5,
         type: 3}
@@ -11643,6 +11643,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5050034220012141258, guid: 8fe4ce601308aa241b29ce5afe115997,
         type: 3}
+    - target: {fileID: 6813132246779136525, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierGunSpawnPoints.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9ac703b1db18374fa14da1b719418e5, type: 3}
 --- !u!33 &3469287836615839033

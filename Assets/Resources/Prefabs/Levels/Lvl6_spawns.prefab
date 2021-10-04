@@ -53,9 +53,16 @@ MonoBehaviour:
   - {x: 0.040033743, y: -0.16720057, z: 0.34265006}
   - {x: -0.9860139, y: -0.16720057, z: 0.52899384}
   - {x: 0.9885547, y: -0.16720057, z: 0.5049176}
+  soldierGunSpawnRotations:
+  - {x: 0, y: 0, z: 0, w: 0}
+  - {x: 0, y: 0, z: 0, w: 0}
+  - {x: 0, y: 0, z: 0, w: 0}
   soldierShieldSpawnPoints: []
+  soldierShieldSpawnRotations: []
   soldierFlagSpawnPoints: []
+  soldierFlagSpawnRotations: []
   isPlayer: 1
+  m_spawnedSoldiers: []
 --- !u!1 &7695852943455980601
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +145,12 @@ MonoBehaviour:
   soldierFlagPrefab: {fileID: 5503666464139557486, guid: 938c4450a555df54d87d410b9da9e405,
     type: 3}
   soldierGunSpawnPoints: []
+  soldierGunSpawnRotations: []
   soldierShieldSpawnPoints: []
+  soldierShieldSpawnRotations: []
   soldierFlagSpawnPoints:
   - {x: 0.37358782, y: -0.16720057, z: 0.18333098}
+  soldierFlagSpawnRotations:
+  - {x: 0, y: 0.86602545, z: 0, w: 0.49999994}
   isPlayer: 0
+  m_spawnedSoldiers: []

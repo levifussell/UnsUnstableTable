@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6813132246138017936}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029206271}
-  m_LocalPosition: {x: 0.33, y: -0.0100905895, z: 4.165}
+  m_LocalPosition: {x: 0.33, y: 0, z: 4.165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6813132246486960221}
@@ -49,11 +49,17 @@ MonoBehaviour:
   soldierFlagPrefab: {fileID: 5503666464139557486, guid: 938c4450a555df54d87d410b9da9e405,
     type: 3}
   soldierGunSpawnPoints:
-  - {x: 0.47497314, y: -0.8299094, z: 4.7644024}
+  - {x: 0.47497314, y: 0, z: 4.7644024}
+  soldierGunSpawnRotations:
+  - {x: 0, y: 0.72495914, z: 0, w: 0.6887919}
   soldierShieldSpawnPoints: []
+  soldierShieldSpawnRotations: []
   soldierFlagSpawnPoints:
-  - {x: 1.295015, y: -0.8299094, z: 1.8045927}
+  - {x: 1.295015, y: 0, z: 1.8045927}
+  soldierFlagSpawnRotations:
+  - {x: 0, y: 0.99983823, z: 0, w: -0.01798704}
   isPlayer: 0
+  m_spawnedSoldiers: []
 --- !u!1 &6813132246486960220
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6813132246486960220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0.84, z: -0.39}
+  m_LocalPosition: {x: -0.15, y: 0, z: -0.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6813132246779136524}
@@ -134,7 +140,12 @@ MonoBehaviour:
     type: 3}
   soldierFlagPrefab: {fileID: 0}
   soldierGunSpawnPoints:
-  - {x: -0.7833127, y: -0.84, z: -0.23707652}
+  - {x: -0.7833127, y: 0, z: -0.23707652}
+  soldierGunSpawnRotations:
+  - {x: 0, y: 0, z: 0, w: 0}
   soldierShieldSpawnPoints: []
+  soldierShieldSpawnRotations: []
   soldierFlagSpawnPoints: []
+  soldierFlagSpawnRotations: []
   isPlayer: 1
+  m_spawnedSoldiers: []

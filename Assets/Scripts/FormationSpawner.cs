@@ -25,9 +25,17 @@ public class FormationSpawner : MonoBehaviour
     [SerializeField]
     public List<Vector3> soldierGunSpawnPoints = new List<Vector3>();
     [SerializeField]
+    public List<Quaternion> soldierGunSpawnRotations = new List<Quaternion>();
+
+    [SerializeField]
     List<Vector3> soldierShieldSpawnPoints = new List<Vector3>();
     [SerializeField]
+    List<Quaternion> soldierShieldSpawnRotations = new List<Quaternion>();
+
+    [SerializeField]
     List<Vector3> soldierFlagSpawnPoints = new List<Vector3>();
+    [SerializeField]
+    List<Quaternion> soldierFlagSpawnRotations = new List<Quaternion>();
 
     [SerializeField]
     bool isPlayer = true;
@@ -64,37 +72,38 @@ public class FormationSpawner : MonoBehaviour
 
         // Gun soldiers.
 
-        foreach(Vector3 sp in soldierGunSpawnPoints)
+        for(int i = 0; i < soldierGunSpawnPoints.Count; ++i)
         {
             Soldier s = GameObject.Instantiate(soldierGunPrefab);
-            PostprocessSoldier(s, sp);
+            PostprocessSoldier(s, soldierGunSpawnPoints[i], soldierGunSpawnRotations[i]);
             onSoldierIndexSpawned?.Invoke(s, soldierIndex++);
         }
 
         // Shield soldiers.
 
-        foreach(Vector3 sp in soldierShieldSpawnPoints)
+        for(int i = 0; i < soldierShieldSpawnPoints.Count; ++i)
         {
             Soldier s = GameObject.Instantiate(soldierShieldPrefab);
-            PostprocessSoldier(s, sp);
+            PostprocessSoldier(s, soldierShieldSpawnPoints[i], soldierShieldSpawnRotations[i]);
             onSoldierIndexSpawned?.Invoke(s, soldierIndex++);
         }
 
         // Flag soldiers.
 
-        foreach(Vector3 sp in soldierFlagSpawnPoints)
+        for(int i = 0; i < soldierFlagSpawnPoints.Count; ++i)
         {
             Soldier s = GameObject.Instantiate(soldierFlagPrefab);
-            PostprocessSoldier(s, sp);
+            PostprocessSoldier(s, soldierFlagSpawnPoints[i], soldierFlagSpawnRotations[i]);
             onSoldierIndexSpawned?.Invoke(s, soldierIndex++);
         }
 
     }
 
-    void PostprocessSoldier(Soldier s, Vector3 spawnPoint)
+    void PostprocessSoldier(Soldier s, Vector3 spawnPoint, Quaternion spawnRot)
     {
+        spawnPoint.y = GROUND_HEIGHT;
         s.transform.position = this.transform.TransformPoint(spawnPoint);
-        s.transform.rotation = this.transform.rotation;
+        s.transform.rotation = spawnRot;
         s.gameObject.layer = m_layer;
         CorrectVerticalSoldier(s);
         m_spawnedSoldiers.Add(s);
@@ -166,7 +175,9 @@ public class FormationSpawner : MonoBehaviour
         for(int i = 0; i < fs.soldierGunSpawnPoints.Count; ++i)
         {
             EditorGUI.BeginChangeCheck();
-            Vector3 newPoint = Handles.PositionHandle(fs.transform.TransformPoint(fs.soldierGunSpawnPoints[i]), Quaternion.identity);
+            if (fs.soldierGunSpawnRotations[i].x == 0 && fs.soldierGunSpawnRotations[i].y == 0 && fs.soldierGunSpawnRotations[i].z == 0 && fs.soldierGunSpawnRotations[i].w == 0)
+                fs.soldierGunSpawnRotations[i] = Quaternion.identity;
+            Vector3 newPoint = Handles.PositionHandle(fs.transform.TransformPoint(fs.soldierGunSpawnPoints[i]), fs.soldierGunSpawnRotations[i]);
             newPoint = fs.transform.InverseTransformPoint(new Vector3(newPoint.x, GROUND_HEIGHT, newPoint.z));
             if(EditorGUI.EndChangeCheck())
             {
@@ -175,10 +186,23 @@ public class FormationSpawner : MonoBehaviour
             }
         }
 
-        for(int i = 0; i < fs.soldierShieldSpawnPoints.Count; ++i)
+        for(int i = 0; i < fs.soldierGunSpawnRotations.Count; ++i)
         {
             EditorGUI.BeginChangeCheck();
-            Vector3 newPoint = Handles.PositionHandle(fs.transform.TransformPoint(fs.soldierShieldSpawnPoints[i]), Quaternion.identity);
+            Quaternion newRot = Handles.RotationHandle(fs.soldierGunSpawnRotations[i], fs.transform.TransformPoint(fs.soldierGunSpawnPoints[i]));
+            if(EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(fs, "change spawn rotation.");
+                fs.soldierGunSpawnRotations[i] = newRot;
+            }
+        }
+
+        for(int i = 0; i < fs.soldierShieldSpawnPoints.Count; ++i)
+        {
+            if (fs.soldierShieldSpawnRotations[i].x == 0 && fs.soldierShieldSpawnRotations[i].y == 0 && fs.soldierShieldSpawnRotations[i].z == 0 && fs.soldierShieldSpawnRotations[i].w == 0)
+                fs.soldierShieldSpawnRotations[i] = Quaternion.identity;
+            EditorGUI.BeginChangeCheck();
+            Vector3 newPoint = Handles.PositionHandle(fs.transform.TransformPoint(fs.soldierShieldSpawnPoints[i]), fs.soldierShieldSpawnRotations[i]);
             newPoint = fs.transform.InverseTransformPoint(new Vector3(newPoint.x, GROUND_HEIGHT, newPoint.z));
             if(EditorGUI.EndChangeCheck())
             {
@@ -187,15 +211,39 @@ public class FormationSpawner : MonoBehaviour
             }
         }
 
-        for(int i = 0; i < fs.soldierFlagSpawnPoints.Count; ++i)
+        for(int i = 0; i < fs.soldierShieldSpawnRotations.Count; ++i)
         {
             EditorGUI.BeginChangeCheck();
-            Vector3 newPoint = Handles.PositionHandle(fs.transform.TransformPoint(fs.soldierFlagSpawnPoints[i]), Quaternion.identity);
+            Quaternion newRot = Handles.RotationHandle(fs.soldierShieldSpawnRotations[i], fs.transform.TransformPoint(fs.soldierShieldSpawnPoints[i]));
+            if(EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(fs, "change spawn rotation.");
+                fs.soldierShieldSpawnRotations[i] = newRot;
+            }
+        }
+
+        for(int i = 0; i < fs.soldierFlagSpawnPoints.Count; ++i)
+        {
+            if (fs.soldierFlagSpawnRotations[i].x == 0 && fs.soldierFlagSpawnRotations[i].y == 0 && fs.soldierFlagSpawnRotations[i].z == 0 && fs.soldierFlagSpawnRotations[i].w == 0)
+                fs.soldierFlagSpawnRotations[i] = Quaternion.identity;
+            EditorGUI.BeginChangeCheck();
+            Vector3 newPoint = Handles.PositionHandle(fs.transform.TransformPoint(fs.soldierFlagSpawnPoints[i]), fs.soldierFlagSpawnRotations[i]);
             newPoint = fs.transform.InverseTransformPoint(new Vector3(newPoint.x, GROUND_HEIGHT, newPoint.z));
             if(EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(fs, "change spawn point.");
                 fs.soldierFlagSpawnPoints[i] = newPoint;
+            }
+        }
+
+        for(int i = 0; i < fs.soldierFlagSpawnRotations.Count; ++i)
+        {
+            EditorGUI.BeginChangeCheck();
+            Quaternion newRot = Handles.RotationHandle(fs.soldierFlagSpawnRotations[i], fs.transform.TransformPoint(fs.soldierFlagSpawnPoints[i]));
+            if(EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(fs, "change spawn rotation.");
+                fs.soldierFlagSpawnRotations[i] = newRot;
             }
         }
 
