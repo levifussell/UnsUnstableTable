@@ -3977,7 +3977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playButton: {fileID: 1998926945}
   playerController: {fileID: 1393218032}
-  mainMenuLevel: {fileID: 2896445668670665936, guid: 1728069b156e453428c1cac7eb008029,
+  mainMenuLevel: {fileID: 2896445668670665936, guid: fae6e93a744bc4c44a4c2f0a519007ae,
     type: 3}
   transitionMenu: {fileID: 688795179}
   dialogueMenu: {fileID: 1341776034}
@@ -3989,7 +3989,7 @@ MonoBehaviour:
   previousLevelButton: {fileID: 1218010019}
   levelText: {fileID: 2119257298}
   levelFormations:
-  - {fileID: 2896445668670665936, guid: 1728069b156e453428c1cac7eb008029, type: 3}
+  - {fileID: 2896445668670665936, guid: fae6e93a744bc4c44a4c2f0a519007ae, type: 3}
 --- !u!1 &1392231548
 GameObject:
   m_ObjectHideFlags: 0

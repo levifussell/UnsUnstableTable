@@ -35,7 +35,7 @@ public class FormationSpawner : MonoBehaviour
 
     #region variables
     int m_layer;
-    List<Soldier> m_spawnedSoldiers = new List<Soldier>();
+    public List<Soldier> m_spawnedSoldiers = new List<Soldier>();
 
     public Action<Soldier, int> onSoldierIndexSpawned = null;
 
