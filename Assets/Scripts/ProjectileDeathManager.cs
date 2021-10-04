@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileDeathManager : Singleton<ProjectileDeathManager>
+public class _ProjectileDeathManager : MonoBehaviour
 {
     List<Projectile> m_liveProjectiles = new List<Projectile>();
 
@@ -27,4 +27,9 @@ public class ProjectileDeathManager : Singleton<ProjectileDeathManager>
             p.DestroyWithSmokeTrail();
         }
     }
+}
+
+public class ProjectileDeathManager : Singleton<_ProjectileDeathManager>
+{
+
 }

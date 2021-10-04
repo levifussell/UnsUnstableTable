@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : Singleton<EnemyAI>
+public class _EnemyAI : MonoBehaviour
 {
     const float TARGET_NOISE = 0.8f;
 
@@ -93,4 +93,9 @@ public class EnemyAI : Singleton<EnemyAI>
             enemyRigidbodies[i].MoveRotation(Quaternion.Lerp(currentEnemy.transform.rotation, rotTowards * currentEnemy.transform.rotation, 0.5f));
         }
     }
+}
+
+public class EnemyAI : Singleton<_EnemyAI>
+{
+
 }
