@@ -43,11 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierGunPrefab: {fileID: 6671114185019015145, guid: b10a0a7070e67b843a6eff1fe5801442,
+  soldierGunPrefab: {fileID: 8354724877170890144, guid: fbd3916ef73525646a5aba88010f0b77,
     type: 3}
-  soldierShieldPrefab: {fileID: 6671114185019015145, guid: b10a0a7070e67b843a6eff1fe5801442,
+  soldierShieldPrefab: {fileID: 8354724877170890144, guid: fbd3916ef73525646a5aba88010f0b77,
     type: 3}
-  soldierFlagPrefab: {fileID: 6671114185019015145, guid: b10a0a7070e67b843a6eff1fe5801442,
+  soldierFlagPrefab: {fileID: 8354724877170890144, guid: fbd3916ef73525646a5aba88010f0b77,
     type: 3}
   soldierGunSpawnPoints:
   - {x: 1.5791836, y: -0.199, z: 0.24213076}
@@ -138,11 +138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierGunPrefab: {fileID: 2088767998068440135, guid: 4782192911ec85c44aa14da3f7bb7513,
+  soldierGunPrefab: {fileID: 691596461483013228, guid: 59a830e2819a66b4bb3a42f9b5aa8c82,
     type: 3}
-  soldierShieldPrefab: {fileID: 2088767998068440135, guid: 4782192911ec85c44aa14da3f7bb7513,
+  soldierShieldPrefab: {fileID: 691596461483013228, guid: 59a830e2819a66b4bb3a42f9b5aa8c82,
     type: 3}
-  soldierFlagPrefab: {fileID: 2088767998068440135, guid: 4782192911ec85c44aa14da3f7bb7513,
+  soldierFlagPrefab: {fileID: 691596461483013228, guid: 59a830e2819a66b4bb3a42f9b5aa8c82,
     type: 3}
   soldierGunSpawnPoints:
   - {x: 1.5791836, y: -0.199, z: 0.24213076}

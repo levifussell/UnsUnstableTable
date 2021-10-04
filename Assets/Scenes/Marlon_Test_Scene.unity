@@ -3109,7 +3109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001839436}
   m_LocalRotation: {x: -0.49999985, y: 0.50000024, z: 0.50000024, w: 0.4999998}
-  m_LocalPosition: {x: 0, y: 0, z: 1.065}
+  m_LocalPosition: {x: 0, y: -0.37, z: 1.07}
   m_LocalScale: {x: 19.6, y: 19.6, z: 19.6}
   m_Children:
   - {fileID: 1231934615}
@@ -8991,6 +8991,61 @@ PrefabInstance:
       propertyPath: soldierFlagPrefab
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051032, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierGunSpawnPoints.Array.data[0].x
+      value: 0.53669167
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051032, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierGunSpawnPoints.Array.data[0].y
+      value: -0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051032, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierGunSpawnPoints.Array.data[1].x
+      value: -0.9669142
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051032, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierGunSpawnPoints.Array.data[1].y
+      value: -0.8299094
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051032, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierGunSpawnPoints.Array.data[1].z
+      value: 1.1042247
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051032, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierGunSpawnPoints.Array.data[2].x
+      value: 1.1065971
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051032, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierGunSpawnPoints.Array.data[2].y
+      value: -0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051032, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierFlagSpawnPoints.Array.data[0].x
+      value: 0.088050425
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051032, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierFlagSpawnPoints.Array.data[0].y
+      value: -0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051032, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: soldierFlagSpawnPoints.Array.data[0].z
+      value: -0.3761512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486281882808051033, guid: b9ac703b1db18374fa14da1b719418e5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6486281883213903815, guid: b9ac703b1db18374fa14da1b719418e5,
         type: 3}
       propertyPath: soldierShieldPrefab
@@ -9059,7 +9114,7 @@ PrefabInstance:
     - target: {fileID: 6486281883570775817, guid: b9ac703b1db18374fa14da1b719418e5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9ac703b1db18374fa14da1b719418e5, type: 3}

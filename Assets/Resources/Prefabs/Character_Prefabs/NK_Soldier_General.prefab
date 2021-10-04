@@ -759,9 +759,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5503666464139557483}
-  - component: {fileID: 5503666464139557482}
-  - component: {fileID: 5503666464139557481}
-  - component: {fileID: 5503666464139557480}
   - component: {fileID: 5503666464139557487}
   - component: {fileID: 5503666464139557486}
   m_Layer: 0
@@ -796,67 +793,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -179.99901, z: 0}
---- !u!33 &5503666464139557482
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503666464139557485}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5503666464139557481
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503666464139557485}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 546cbcf3e33c7ee43b68dcc239a62080, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!136 &5503666464139557480
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503666464139557485}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &5503666464139557487
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -889,9 +825,10 @@ MonoBehaviour:
   m_fireFromLocalPosition: {x: 0, y: 0, z: 0}
   m_fireForce: 10
   m_projectilePrefab: {fileID: 0}
-  m_deathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_deathColor: {r: 0.16078432, g: 0.16078432, b: 0.16078432, a: 1}
   m_forceDefenceScale: 0
   m_canShoot: 0
+  m_isRandomShoot: 0
 --- !u!1 &5503666464849138656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1093,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4250832825194116423, guid: 2a760bbd6e443ce4b96f260928ffb9fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ad927694d4fd324a9fd81ebc6e47c66, type: 2}
     - target: {fileID: 919132149155446097, guid: 2a760bbd6e443ce4b96f260928ffb9fe,
         type: 3}
       propertyPath: m_Name

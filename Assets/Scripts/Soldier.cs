@@ -12,7 +12,7 @@ public class Soldier : MonoBehaviour
     const float GROUND_THRESHOLD = -0.3f;
 
     #region parameters
-    [SerializeField] [Range(1.0f, 10.0f)]
+    [SerializeField] [Range(1.0f, 30.0f)]
     float m_coolDownTimeSeconds = 2.0f;
     [SerializeField]
     Vector3 m_fireFromLocalPosition = Vector3.zero;
@@ -26,6 +26,8 @@ public class Soldier : MonoBehaviour
     float m_forceDefenceScale = 0.0f;
     [SerializeField]
     bool m_canShoot = true;
+    [SerializeField]
+    bool m_isRandomShoot = false;
     #endregion
 
     #region variables
@@ -87,7 +89,7 @@ public class Soldier : MonoBehaviour
             {
                 m_isDead = true;
                 this.gameObject.SetLayerRecursive(0);
-                SetMaterialsColor(m_deathColor);
+                SetMaterialsColor(m_deathColor, 1.0f);
                 if (m_ringTimer != null)
                     m_ringTimer.gameObject.SetActive(false);
 
@@ -100,7 +102,7 @@ public class Soldier : MonoBehaviour
             {
                 m_isDead = false;
                 this.gameObject.SetLayerRecursive(m_layerInit);
-                SetMaterialsColor(m_baseColor);
+                SetMaterialsColor(m_baseColor, 0.0f);
                 if (m_ringTimer != null)
                     m_ringTimer.gameObject.SetActive(true);
 
@@ -120,7 +122,9 @@ public class Soldier : MonoBehaviour
     #region control
     IEnumerator WaitAndFire()
     {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(0.0f, this.m_coolDownTimeSeconds));
+        if(m_isRandomShoot)
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0.0f, this.m_coolDownTimeSeconds));
+
         is_warmup = false;
 
         while (true)
@@ -167,11 +171,12 @@ public class Soldier : MonoBehaviour
         return Vector3.Dot(this.transform.up, Vector3.up) < DEATH_MARGIN || this.transform.position.y < GROUND_THRESHOLD;
     }
 
-    void SetMaterialsColor(Color color)
+    void SetMaterialsColor(Color color, float deathValue)
     {
         foreach(Material m in m_materials)
         {
             m.color = color;
+            m.SetFloat("_DeathValue", deathValue);
         }
     }
 
