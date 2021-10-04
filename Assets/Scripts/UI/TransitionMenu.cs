@@ -51,7 +51,7 @@ public class TransitionMenu : MonoBehaviour
 
     void TransitionReset()
     {
-        topRect.anchoredPosition = new Vector2(-Screen.width, 0.0f);
+        topRect.anchoredPosition = new Vector2(-Screen.width - MIDDLE_OFFSET * 2.0f, 0.0f);
         middleRect.anchoredPosition = new Vector2(-Screen.width - MIDDLE_OFFSET, 0.0f);
         bottomRect.anchoredPosition = new Vector2(-Screen.width - BOTTOM_OFFSET, 0.0f);
     }

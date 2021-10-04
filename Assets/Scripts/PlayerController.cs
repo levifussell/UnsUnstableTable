@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
             0.0f));
 
         ControlHitData hitData;
-        hitData.isHit = Physics.Raycast(mouseRay, out RaycastHit info, 10.0f, m_groundMask, QueryTriggerInteraction.Ignore);
+        hitData.isHit = Physics.Raycast(mouseRay, out RaycastHit info, 10.0f, m_groundMask, QueryTriggerInteraction.Collide);
         hitData.position = info.point;
         hitData.normal = info.normal;
 

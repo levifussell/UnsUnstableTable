@@ -131,9 +131,12 @@ public class MainMenu : MonoBehaviour
         hudMenu.SetupNewLevelHud(m_levelState);
 
         // setup the enemy AI.
-        FormationSpawner[] formations = m_levelState.GetComponentsInChildren<FormationSpawner>();
-        EnemyAI.Instance.formationSpawnerRebel = formations[0];
-        EnemyAI.Instance.formationSpawnerEnemy = formations[1];
+        if(hubController.currentLevelIndex != 0)
+        {
+            FormationSpawner[] formations = m_levelState.GetComponentsInChildren<FormationSpawner>();
+            EnemyAI.Instance.formationSpawnerRebel = formations[0];
+            EnemyAI.Instance.formationSpawnerEnemy = formations[1];
+        }
     }
 
     void StartMenu()
