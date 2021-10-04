@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &478236736741766683
+--- !u!1 &4114801864009033503
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 478236736741766684}
-  - component: {fileID: 478236736741766685}
+  - component: {fileID: 4114801864009033496}
+  - component: {fileID: 4114801864009033497}
   m_Layer: 0
   m_Name: rebels
   m_TagString: Untagged
@@ -17,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &478236736741766684
+--- !u!4 &4114801864009033496
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478236736741766683}
+  m_GameObject: {fileID: 4114801864009033503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.06948686, y: -0.0100905895, z: -1.6727308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 478236737119859789}
+  m_Father: {fileID: 4114801865861195081}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &478236736741766685
+--- !u!114 &4114801864009033497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478236736741766683}
+  m_GameObject: {fileID: 4114801864009033503}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
@@ -67,7 +67,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0, w: 1}
   isPlayer: 1
   m_spawnedSoldiers: []
---- !u!1 &478236736940385408
+--- !u!1 &4114801865861195080
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,8 +75,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 478236736940385409}
-  - component: {fileID: 478236736940385410}
+  - component: {fileID: 4114801865861195081}
+  m_Layer: 0
+  m_Name: Lvl3_spawns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4114801865861195081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114801865861195080}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.763006, y: 0.17729115, z: -0.474}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4114801864009033496}
+  - {fileID: 4114801866041783685}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4114801866041783684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4114801866041783685}
+  - component: {fileID: 4114801866041783686}
   m_Layer: 0
   m_Name: kims
   m_TagString: Untagged
@@ -84,27 +116,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &478236736940385409
+--- !u!4 &4114801866041783685
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478236736940385408}
+  m_GameObject: {fileID: 4114801866041783684}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029206271}
   m_LocalPosition: {x: 0.33, y: -0.0100905895, z: 4.165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 478236737119859789}
+  m_Father: {fileID: 4114801865861195081}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
---- !u!114 &478236736940385410
+--- !u!114 &4114801866041783686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478236736940385408}
+  m_GameObject: {fileID: 4114801866041783684}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
@@ -119,16 +151,14 @@ MonoBehaviour:
   soldierGunSpawnPoints:
   - {x: -0.83828115, y: -0.16720057, z: 0.7183796}
   - {x: -1.2873578, y: -0.16720057, z: 1.8558093}
-  - {x: 1.3509645, y: -0.16720057, z: 0.47397634}
+  - {x: 1.42, y: -0.16720057, z: 1.2}
   soldierGunSpawnRotations:
   - {x: 0, y: 1, z: 0, w: -0.00000004371139}
   - {x: 0, y: 1, z: 0, w: -0.00000004371139}
   - {x: 0, y: 1, z: 0, w: -0.00000004371139}
   soldierShieldSpawnPoints:
   - {x: -0.009230084, y: -0.16720057, z: 0.8918062}
-  - {x: 0.8017749, y: -0.16720057, z: 1.9278661}
   soldierShieldSpawnRotations:
-  - {x: 0, y: 1, z: 0, w: -0.00000004371139}
   - {x: 0, y: 1, z: 0, w: -0.00000004371139}
   soldierFlagSpawnPoints:
   - {x: 0.0006070188, y: -0.16720057, z: -0.25932407}
@@ -136,35 +166,3 @@ MonoBehaviour:
   - {x: 0, y: 0.9914449, z: 0, w: 0.13052613}
   isPlayer: 0
   m_spawnedSoldiers: []
---- !u!1 &478236737119859788
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 478236737119859789}
-  m_Layer: 0
-  m_Name: Lvl3_spawns
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &478236737119859789
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478236737119859788}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.763006, y: 0.17729115, z: -0.474}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 478236736741766684}
-  - {fileID: 478236736940385409}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

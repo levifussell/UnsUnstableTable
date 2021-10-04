@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierGunPrefab: {fileID: 8354724877170890144, guid: fbd3916ef73525646a5aba88010f0b77,
+  soldierGunPrefab: {fileID: 8354724877170890144, guid: 6c6cc30f3ea1a9e4dbb6e75bfeb9af15,
     type: 3}
   soldierShieldPrefab: {fileID: 776746874382244852, guid: b0b910ae5e0e9a247bf27797d7cb21f0,
     type: 3}
@@ -102,14 +102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierGunPrefab: {fileID: 691596461483013228, guid: 59a830e2819a66b4bb3a42f9b5aa8c82,
+  soldierGunPrefab: {fileID: 691596461483013228, guid: 3b184124e64a4114b82b9d7faeec86d4,
     type: 3}
   soldierShieldPrefab: {fileID: 5247910740472811153, guid: 8d47aa05f3445f449b50e4a75664ea63,
     type: 3}
   soldierFlagPrefab: {fileID: 5503666464139557486, guid: 938c4450a555df54d87d410b9da9e405,
     type: 3}
   soldierGunSpawnPoints:
-  - {x: 0.47497314, y: 0, z: 4.7644024}
+  - {x: 0.5368005, y: 0, z: 5.106807}
   soldierGunSpawnRotations:
   - {x: 0, y: -0.64121425, z: 0, w: 0.7673619}
   soldierShieldSpawnPoints: []
