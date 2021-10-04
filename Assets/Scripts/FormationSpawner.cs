@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,11 +16,11 @@ public class FormationSpawner : MonoBehaviour
 
     #region parameters
     [SerializeField]
-    GameObject soldierGunPrefab = null;
+    Soldier soldierGunPrefab = null;
     [SerializeField]
-    GameObject soldierShieldPrefab = null;
+    Soldier soldierShieldPrefab = null;
     [SerializeField]
-    GameObject soldierFlagPrefab = null;
+    Soldier soldierFlagPrefab = null;
 
     [SerializeField]
     public List<Vector3> soldierGunSpawnPoints = new List<Vector3>();
@@ -34,14 +35,20 @@ public class FormationSpawner : MonoBehaviour
 
     #region variables
     int m_layer;
-    List<GameObject> m_spawnedSoldiers = new List<GameObject>();
+    List<Soldier> m_spawnedSoldiers = new List<Soldier>();
+
+    public Action<Soldier, int> onSoldierIndexSpawned = null;
+
+    public int totalSoldiersCount { get => soldierGunSpawnPoints.Count + soldierShieldSpawnPoints.Count + soldierFlagSpawnPoints.Count; }
     #endregion
 
     #region builtin
     private void Awake()
     {
         m_layer = LayerMask.NameToLayer(isPlayer ? "Player1" : "Player2");
-
+    }
+    private void Start()
+    {
         SpawnFormation();
     }
     private void OnDestroy()
@@ -53,42 +60,47 @@ public class FormationSpawner : MonoBehaviour
     #region control
     void SpawnFormation()
     {
+        int soldierIndex = 0;
+
         // Gun soldiers.
 
         foreach(Vector3 sp in soldierGunSpawnPoints)
         {
-            GameObject s = GameObject.Instantiate(soldierGunPrefab);
+            Soldier s = GameObject.Instantiate(soldierGunPrefab);
             PostprocessSoldier(s, sp);
+            onSoldierIndexSpawned?.Invoke(s, soldierIndex++);
         }
 
         // Shield soldiers.
 
         foreach(Vector3 sp in soldierShieldSpawnPoints)
         {
-            GameObject s = GameObject.Instantiate(soldierShieldPrefab);
+            Soldier s = GameObject.Instantiate(soldierShieldPrefab);
             PostprocessSoldier(s, sp);
+            onSoldierIndexSpawned?.Invoke(s, soldierIndex++);
         }
 
         // Flag soldiers.
 
         foreach(Vector3 sp in soldierFlagSpawnPoints)
         {
-            GameObject s = GameObject.Instantiate(soldierFlagPrefab);
+            Soldier s = GameObject.Instantiate(soldierFlagPrefab);
             PostprocessSoldier(s, sp);
+            onSoldierIndexSpawned?.Invoke(s, soldierIndex++);
         }
 
     }
 
-    void PostprocessSoldier(GameObject s, Vector3 spawnPoint)
+    void PostprocessSoldier(Soldier s, Vector3 spawnPoint)
     {
         s.transform.position = this.transform.TransformPoint(spawnPoint);
         s.transform.rotation = this.transform.rotation;
-        s.layer = m_layer;
+        s.gameObject.layer = m_layer;
         CorrectVerticalSoldier(s);
         m_spawnedSoldiers.Add(s);
     }
 
-    void CorrectVerticalSoldier(GameObject s)
+    void CorrectVerticalSoldier(Soldier s)
     {
         Mesh[] meshes = s.GetComponentsInChildren<MeshFilter>().Select(x => x.mesh).ToArray();
         Bounds allBounds = meshes[0].bounds;
@@ -133,9 +145,10 @@ public class FormationSpawner : MonoBehaviour
 
     public void UnspawnAndDestroyAllSoldiers()
     {
-        foreach(GameObject soldier in m_spawnedSoldiers)
+        foreach(Soldier soldier in m_spawnedSoldiers)
         {
-            Destroy(soldier);
+            if(soldier != null)
+                Destroy(soldier.gameObject);
         }
     }
     #endregion

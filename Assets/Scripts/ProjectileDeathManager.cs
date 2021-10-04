@@ -7,17 +7,17 @@ public class ProjectileDeathManager : Singleton<ProjectileDeathManager>
 {
     List<Projectile> m_liveProjectiles = new List<Projectile>();
 
-    public Action<Vector3, Vector3> onProjectileDeath;
+    public Action<Vector3, Vector3, bool> onProjectileDeath;
 
     public void RegisterNewProjectile(Projectile projectile)
     {
         m_liveProjectiles.Add(projectile);
     }
 
-    public void RegisterNewProjectileDeath(Projectile projectile, Vector3 force, Vector3 position)
+    public void RegisterNewProjectileDeath(Projectile projectile, Vector3 force, Vector3 position, bool hitSoldier)
     {
         m_liveProjectiles.Remove(projectile);
-        onProjectileDeath?.Invoke(force, position);
+        onProjectileDeath?.Invoke(force, position, hitSoldier);
     }
 
     public void DestroyAllProjectiles()

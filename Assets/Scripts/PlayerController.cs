@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Vector3 TABLE_CENTER = Vector3.zero;
-
     #region parameters
     [SerializeField][Range(0.0f, 10.0f)]
     float m_controlRate = 1.0f;
@@ -28,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     #region variables
     Camera m_camera;
-    Vector3 m_cameraInitPosition;
+    Vector3 m_cameraInitLocalPosition;
     GameObject m_controlCursor;
     GameObject m_pivotCursor;
     bool m_stickToggle = false;
@@ -41,6 +39,8 @@ public class PlayerController : MonoBehaviour
     Action m_onMouseLeftUp;
     Action m_onMouseRightDown;
     Action m_onMouseRightUp;
+
+    public Vector3 TABLE_CENTER = Vector3.zero;
     #endregion
 
     #region data
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         m_camera = this.GetComponentInChildren<Camera>();
         if (m_camera == null)
             Debug.LogError("Player is mmissing a camera!");
-        m_cameraInitPosition = m_camera.transform.position;
+        m_cameraInitLocalPosition = m_camera.transform.localPosition;
 
         m_controlCursor = GameObject.Instantiate(m_controlCursorPrefab);
         m_pivotCursor = GameObject.Instantiate(m_controlCursorPrefab);
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         cameraDrift.x *= m_cameraMoveScaleSideways;
         cameraDrift.y *= m_cameraMoveScaleSideways;
         cameraDrift.z *= m_cameraMoveScaleForward;
-        m_camera.transform.position = m_cameraInitPosition + cameraDrift;
+        m_camera.transform.position = m_camera.transform.parent.TransformPoint(m_cameraInitLocalPosition) + cameraDrift;
 
         // inputs.
 

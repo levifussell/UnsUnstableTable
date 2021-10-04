@@ -60,11 +60,12 @@ public class DialogueMenu : MonoBehaviour
     }
 
     #region controls
-    void DecideBeginDialogue(Vector3 force, Vector3 position)
+    void DecideBeginDialogue(Vector3 force, Vector3 position, bool hitSoldier)
     {
         if(!m_isActive)
         {
-            StartCoroutine(RunDialogue());
+            if(hitSoldier)
+                StartCoroutine(RunDialogue());
         }
     }
 
@@ -84,14 +85,14 @@ public class DialogueMenu : MonoBehaviour
     void BeginDialogue()
     {
         kjuAnimation.m_targetPosition = new Vector2(-89.0f, 87.0f);
-        m_targetDialoguePosition = new Vector2(-293.0f, -128.0f);
+        m_targetDialoguePosition = new Vector2(532.0f, -125.0f);
         m_dialogue.ClearDialogue();
     }
 
     void EndDialogue()
     {
         kjuAnimation.m_targetPosition = new Vector2(-448.0f, 87.0f);
-        m_targetDialoguePosition = new Vector2(-293.0f, 100.0f);
+        m_targetDialoguePosition = new Vector2(532.0f, 118.0f);
         m_dialogue.ClearDialogue();
     }
     #endregion
@@ -104,7 +105,7 @@ public class DialogueMenu : MonoBehaviour
         {
             if(GUILayout.Button("Try Random Dialogue"))
             {
-                menu.DecideBeginDialogue(Vector3.zero, Vector3.zero);
+                menu.DecideBeginDialogue(Vector3.zero, Vector3.zero, true);
             }
         }
     }

@@ -18,6 +18,22 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     TransitionMenu transitionMenu = null;
     [SerializeField]
     DialogueMenu dialogueMenu = null;
+    [SerializeField]
+    HudMenu hudMenu = null;
+
+    [Header("Hub References")]
+    [SerializeField]
+    HubController hubController = null;
+    [SerializeField]
+    Button nextLevelButton = null;
+    [SerializeField]
+    Button previousLevelButton = null;
+    [SerializeField]
+    Text levelText = null;
+
+    [Header("Level Prefabs")]
+    [SerializeField]
+    List<GameObject> levelFormations = new List<GameObject>();
     #endregion
 
     #region variables
@@ -32,7 +48,16 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         playButton.onClick.AddListener(OnPlayClick);
         playerController.enabled = false;
 
-        m_levelState = GameObject.Instantiate(mainMenuLevel);
+        transitionMenu.gameObject.SetActive(true);
+        hudMenu.gameObject.SetActive(false);
+
+        //m_levelState = GameObject.Instantiate(mainMenuLevel);
+
+        nextLevelButton.onClick.AddListener(hubController.NextLevel);
+        previousLevelButton.onClick.AddListener(hubController.PreviousLevel);
+
+        if (levelFormations.Count != hubController.levelCount)
+            Debug.LogError(string.Format("There are {0} levels and only {1} formations given!", hubController.levelCount, levelFormations.Count));
     }
 
     private void OnDisable()
@@ -49,7 +74,7 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     void Update()
     {
-        
+        levelText.text = string.Format("level {0}", hubController.currentLevelIndex + 1);
     }
 
     void OnPlayClick()
@@ -65,13 +90,18 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         // close current level.
 
-        Destroy(m_levelState);
+        //Destroy(m_levelState);
         ProjectileDeathManager.Instance.DestroyAllProjectiles();
 
         // spawn new level.
-        GameObject.Instantiate(mainMenuLevel);
+        //GameObject.Instantiate(mainMenuLevel);
+        GameObject level = GameObject.Instantiate(levelFormations[hubController.currentLevelIndex]);
+        level.transform.position = hubController.currentLevelOrigin;
 
         dialogueMenu.enabled = true;
+
+        hudMenu.gameObject.SetActive(true);
+        hudMenu.SetupNewLevelHud(level);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -89,6 +119,5 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     #region controls
-
     #endregion
 }

@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8657352200144621440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8657352200144621447}
+  - component: {fileID: 8657352200144621446}
+  m_Layer: 0
+  m_Name: rebels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8657352200144621447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657352200144621440}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.06948686, y: -0.0100905895, z: -1.6727308}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8657352201729723862}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8657352200144621446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657352200144621440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soldierGunPrefab: {fileID: 8354724877170890144, guid: fbd3916ef73525646a5aba88010f0b77,
+    type: 3}
+  soldierShieldPrefab: {fileID: 776746874382244852, guid: b0b910ae5e0e9a247bf27797d7cb21f0,
+    type: 3}
+  soldierFlagPrefab: {fileID: 5050034220012141258, guid: 8fe4ce601308aa241b29ce5afe115997,
+    type: 3}
+  soldierGunSpawnPoints:
+  - {x: 0.040033743, y: -0.16720057, z: 0.34265006}
+  - {x: -0.9860139, y: -0.16720057, z: 0.52899384}
+  - {x: 0.9885547, y: -0.16720057, z: 0.5049176}
+  soldierShieldSpawnPoints: []
+  soldierFlagSpawnPoints: []
+  isPlayer: 1
+--- !u!1 &8657352201381240091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8657352201381240090}
+  - component: {fileID: 8657352201381240089}
+  m_Layer: 0
+  m_Name: kims
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8657352201381240090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657352201381240091}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029206271}
+  m_LocalPosition: {x: 0.33, y: -0.0100905895, z: 4.165}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8657352201729723862}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+--- !u!114 &8657352201381240089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657352201381240091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soldierGunPrefab: {fileID: 691596461483013228, guid: 59a830e2819a66b4bb3a42f9b5aa8c82,
+    type: 3}
+  soldierShieldPrefab: {fileID: 5247910740472811153, guid: 8d47aa05f3445f449b50e4a75664ea63,
+    type: 3}
+  soldierFlagPrefab: {fileID: 5503666464139557486, guid: 938c4450a555df54d87d410b9da9e405,
+    type: 3}
+  soldierGunSpawnPoints: []
+  soldierShieldSpawnPoints: []
+  soldierFlagSpawnPoints:
+  - {x: 0.00000013352859, y: -0.16720057, z: 0.022859573}
+  isPlayer: 0
+--- !u!1 &8657352201729723863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8657352201729723862}
+  m_Layer: 0
+  m_Name: Lvl5_spawns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8657352201729723862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657352201729723863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.23348686, y: 0.17729115, z: -0.013269186}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8657352200144621447}
+  - {fileID: 8657352201381240090}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

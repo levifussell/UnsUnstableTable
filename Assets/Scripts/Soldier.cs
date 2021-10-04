@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class Soldier : MonoBehaviour
 {
     const float FIRE_RANGE = 100.0f;
     const float DEATH_MARGIN = 0.5f;
+    const float GROUND_THRESHOLD = -0.3f;
 
     #region parameters
     [SerializeField] [Range(1.0f, 10.0f)]
@@ -39,6 +41,8 @@ public class Soldier : MonoBehaviour
 
     bool is_warmup = true;
     bool m_isDead = false;
+    public Action<Soldier> onIsDead = null;
+    public Action<Soldier> onIsAlive = null;
 
     Vector3 fireFromGlobalPosition
     {
@@ -86,6 +90,8 @@ public class Soldier : MonoBehaviour
                 SetMaterialsColor(m_deathColor);
                 if (m_ringTimer != null)
                     m_ringTimer.gameObject.SetActive(false);
+
+                onIsDead?.Invoke(this);
             }
         }
         else
@@ -97,6 +103,8 @@ public class Soldier : MonoBehaviour
                 SetMaterialsColor(m_baseColor);
                 if (m_ringTimer != null)
                     m_ringTimer.gameObject.SetActive(true);
+
+                onIsAlive?.Invoke(this);
             }
         }
     }
@@ -112,7 +120,7 @@ public class Soldier : MonoBehaviour
     #region control
     IEnumerator WaitAndFire()
     {
-        yield return new WaitForSeconds(Random.Range(0.0f, this.m_coolDownTimeSeconds));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0.0f, this.m_coolDownTimeSeconds));
         is_warmup = false;
 
         while (true)
@@ -122,7 +130,10 @@ public class Soldier : MonoBehaviour
 
             if (!m_isDead)
             {
-                FireForward();
+                if (m_projectilePrefab != null)
+                    FireForward();
+                else
+                    Debug.LogError("This soldier has nothing to shoot!");
             }
         }
     }
@@ -153,7 +164,7 @@ public class Soldier : MonoBehaviour
 
     bool IsFallenOver()
     {
-        return Vector3.Dot(this.transform.up, Vector3.up) < DEATH_MARGIN;
+        return Vector3.Dot(this.transform.up, Vector3.up) < DEATH_MARGIN || this.transform.position.y < GROUND_THRESHOLD;
     }
 
     void SetMaterialsColor(Color color)

@@ -21,7 +21,7 @@ public class HangingLamp : MonoBehaviour
         ProjectileDeathManager.Instance.onProjectileDeath += OnProjectileDeath;
     }
 
-    void OnProjectileDeath(Vector3 force, Vector3 position)
+    void OnProjectileDeath(Vector3 force, Vector3 position, bool hitSoldier)
     {
         //m_rigidbody.AddForce(force * m_forceResponseScale);
         if(m_rigidbody.velocity.magnitude < 0.01f)

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 741511621847623112}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5536475297970912942}
   - component: {fileID: 1878800799802450117}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2334530906150760186}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wrist.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 4982117995463453612}
   - component: {fileID: 5146442864405043482}
   - component: {fileID: 6834660454662487992}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8094131059505242545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1758132961674118911}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lef.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6920542751899227313}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: arm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3017794029443371990}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9140687578324073651}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4843548110171427020}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lef.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6983126621049246075}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 944984539161958011}
   - component: {fileID: 4956960624450403072}
   - component: {fileID: 7377333281067474580}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2552133407525986653}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9019653647554347589}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7349941394583958330}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.003_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8169498945679284193}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7716162473736207843}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +700,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3865626458869423564}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 7443006485354121387}
   - component: {fileID: 2052383443874164606}
   - component: {fileID: 7897679230071369142}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.163
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -809,7 +809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1722893518530104319}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6428595588656166176}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shin.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,7 +872,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7910903081299419545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bone.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,7 +903,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4540009660641486792}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: arm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +934,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8474140754395326802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1055090421182604645}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shin.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -995,7 +995,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3875519422211216649}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hand.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 8354724876454951970}
   - component: {fileID: 8354724876454951981}
   - component: {fileID: 8354724876454951980}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaseCollider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1122,7 @@ GameObject:
   - component: {fileID: 8354724877119610500}
   - component: {fileID: 8354724877119610503}
   - component: {fileID: 8354724877119610502}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftArmCollider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1218,8 +1218,8 @@ GameObject:
   - component: {fileID: 8354724877170890150}
   - component: {fileID: 8354724877170890145}
   - component: {fileID: 8354724877170890144}
-  m_Layer: 0
-  m_Name: SoldierRebel_Rocket
+  m_Layer: 9
+  m_Name: Rebel_Soldier_Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 8354724877346115290}
   - component: {fileID: 8354724877346115301}
   - component: {fileID: 8354724877346115300}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaseCollider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1452,7 +1452,7 @@ GameObject:
   - component: {fileID: 8354724877908809952}
   - component: {fileID: 8354724877908809955}
   - component: {fileID: 8354724877908809954}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HeadCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1546,7 +1546,7 @@ GameObject:
   - component: {fileID: 8354724877953551915}
   - component: {fileID: 8354724877953551914}
   - component: {fileID: 8354724877953551925}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaseCollider3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1639,7 +1639,7 @@ GameObject:
   - component: {fileID: 8354724878131823413}
   - component: {fileID: 8354724878131823412}
   - component: {fileID: 8354724878131823415}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BodyLegCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1733,7 +1733,7 @@ GameObject:
   - component: {fileID: 8354724878216479484}
   - component: {fileID: 8354724878216479487}
   - component: {fileID: 8354724878216479486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightLegCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1827,7 +1827,7 @@ GameObject:
   - component: {fileID: 8354724878221156141}
   - component: {fileID: 8354724878221156140}
   - component: {fileID: 8354724878221156143}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightArmCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 8354724878380861351}
   - component: {fileID: 8354724878380861350}
   - component: {fileID: 8354724878380861345}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftArmCollider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2015,7 +2015,7 @@ GameObject:
   - component: {fileID: 8354724878430682515}
   - component: {fileID: 8354724878430682514}
   - component: {fileID: 8354724878430682525}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftLegCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2106,7 +2106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8420354954078944589}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rebel_Soldier_Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2141,7 +2141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4481350068282012286}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wrist.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

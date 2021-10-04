@@ -891,7 +891,7 @@ MonoBehaviour:
   m_projectilePrefab: {fileID: 0}
   m_deathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_forceDefenceScale: 0
-  m_canShoot: 1
+  m_canShoot: 0
 --- !u!1 &5503666464849138656
 GameObject:
   m_ObjectHideFlags: 0

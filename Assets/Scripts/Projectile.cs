@@ -64,20 +64,25 @@ public class Projectile : MonoBehaviour
         if (this.m_isDead || topParent == m_parentSource)
             return;
 
+        bool hitPlayer = false;
+
         Vector3 force = this.transform.forward * m_fireForce;
         Rigidbody rb = topParent.GetComponent<Rigidbody>();
         if(rb != null)
         {
             Soldier soldier = rb.GetComponent<Soldier>();
             if (soldier != null)
+            {
+                hitPlayer = true;
                 soldier.ApplyForce(force, this.transform.position);
+            }
             else
                 rb.AddForceAtPosition(force, this.transform.position);
         }
 
         DestroyWithSmokeTrail();
 
-        ProjectileDeathManager.Instance.RegisterNewProjectileDeath(this, force, this.transform.position);
+        ProjectileDeathManager.Instance.RegisterNewProjectileDeath(this, force, this.transform.position, hitPlayer);
     }
     #endregion
 
