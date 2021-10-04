@@ -52,11 +52,19 @@ MonoBehaviour:
   soldierGunSpawnPoints:
   - {x: 1.5791836, y: -0.199, z: 0.24213076}
   - {x: 0.29208985, y: -0.4, z: 0.17209612}
+  soldierGunSpawnRotations:
+  - {x: 0, y: 0, z: 0, w: 1}
+  - {x: 0, y: 0, z: 0, w: 1}
   soldierShieldSpawnPoints:
   - {x: 0.95791113, y: -0.4, z: 0.25286117}
   - {x: -1.1072937, y: -0.4, z: 0.31028667}
+  soldierShieldSpawnRotations:
+  - {x: 0, y: 0, z: 0, w: 1}
+  - {x: 0, y: 0, z: 0, w: 1}
   soldierFlagSpawnPoints:
   - {x: -0.39183062, y: -0.4, z: 0.24526168}
+  soldierFlagSpawnRotations:
+  - {x: 0, y: 0, z: 0, w: 1}
   isPlayer: 1
   m_spawnedSoldiers: []
 --- !u!1 &2896445668670665936
@@ -144,10 +152,19 @@ MonoBehaviour:
   - {x: 1.5395737, y: -0.39999998, z: 0.3722369}
   - {x: 0.7837472, y: -0.39999998, z: -0.17357509}
   - {x: -1.5188973, y: -0.199, z: 0.2621498}
+  soldierGunSpawnRotations:
+  - {x: 0, y: 0, z: 0, w: 1}
+  - {x: 0, y: 0, z: 0, w: 1}
+  - {x: 0, y: 0, z: 0, w: 1}
   soldierShieldSpawnPoints:
   - {x: 2.1531749, y: -0.39999998, z: 0.73441684}
   - {x: -0.8116809, y: -0.39999998, z: 0.3410152}
+  soldierShieldSpawnRotations:
+  - {x: 0, y: 0, z: 0, w: 1}
+  - {x: 0, y: 0, z: 0, w: 1}
   soldierFlagSpawnPoints:
   - {x: 0.032878723, y: -0.39999998, z: 0.27213615}
+  soldierFlagSpawnRotations:
+  - {x: 0, y: 0, z: 0, w: 1}
   isPlayer: 0
   m_spawnedSoldiers: []

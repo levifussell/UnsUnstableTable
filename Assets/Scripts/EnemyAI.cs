@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : Singleton<EnemyAI>
 {
-    const float TARGET_NOISE = 0.1f;
+    const float TARGET_NOISE = 0.8f;
 
     #region parameters
     [SerializeField]
@@ -17,7 +17,7 @@ public class EnemyAI : Singleton<EnemyAI>
     List<int> enemyTargetRebel = new List<int>();
     List<Rigidbody> enemyRigidbodies = new List<Rigidbody>();
 
-    float m_replanRate = 1.0f;
+    float m_replanRate = 0.1f;
     float m_replanTimer = 0.0f;
     #endregion
 
@@ -55,11 +55,23 @@ public class EnemyAI : Singleton<EnemyAI>
         enemyTargetRebel = new List<int>();
         enemyRigidbodies = new List<Rigidbody>();
 
+        int deadCount = 0;
+        for(int i = 0; i < formationSpawnerRebel.m_spawnedSoldiers.Count; ++i)
+        {
+            if (formationSpawnerRebel.m_spawnedSoldiers[i].isDead)
+                deadCount++;
+        }
+        if (deadCount == formationSpawnerRebel.m_spawnedSoldiers.Count)
+            return;
+
         int nextRebelIndex = 0;
         while(enemyTargetRebel.Count < formationSpawnerEnemy.totalSoldiersCount)
         {
-            enemyTargetRebel.Add(nextRebelIndex);
-            enemyRigidbodies.Add(formationSpawnerEnemy.m_spawnedSoldiers[enemyTargetRebel.Count - 1].GetComponent<Rigidbody>());
+            if(!formationSpawnerRebel.m_spawnedSoldiers[nextRebelIndex].isDead)
+            {
+                enemyTargetRebel.Add(nextRebelIndex);
+                enemyRigidbodies.Add(formationSpawnerEnemy.m_spawnedSoldiers[enemyTargetRebel.Count - 1].GetComponent<Rigidbody>());
+            }
 
             nextRebelIndex = (nextRebelIndex + 1) % formationSpawnerRebel.totalSoldiersCount;
         }
@@ -67,14 +79,17 @@ public class EnemyAI : Singleton<EnemyAI>
 
     void AimAtTargets()
     {
-        for(int i = 0; i < formationSpawnerEnemy.totalSoldiersCount; ++i)
+        //for(int i = 0; i < formationSpawnerEnemy.totalSoldiersCount; ++i)
+        for(int i = 0; i < enemyTargetRebel.Count; ++i)
         {
             Soldier currentEnemy = formationSpawnerEnemy.m_spawnedSoldiers[i];
             Soldier targetRebel = formationSpawnerRebel.m_spawnedSoldiers[enemyTargetRebel[i]];
-            Vector3 diffTowards = targetRebel.transform.position - currentEnemy.transform.position;
+            Vector3 noise = Vector3Extensions.RandomSphere(TARGET_NOISE);
+            noise.y = currentEnemy.transform.position.y;
+            Vector3 perturbedRebelPosition = targetRebel.transform.position + noise;
+            Vector3 diffTowards = perturbedRebelPosition - currentEnemy.transform.position;
             Quaternion rotTowards = Quaternion.FromToRotation(currentEnemy.transform.forward, diffTowards.normalized);
-            //enemyRigidbodies[i].AddTorque(currentEnemy.transform.up * 100000.0f * rotTowards.eulerAngles.z, ForceMode.VelocityChange);
-            //enemyRigidbodies[i].angularVelocity = -currentEnemy.transform.up * 10000.0f * rotTowards.eulerAngles.y / Time.deltaTime;
+            rotTowards.eulerAngles = new Vector3(0.0f, rotTowards.eulerAngles.y, 0.0f);
             enemyRigidbodies[i].MoveRotation(Quaternion.Lerp(currentEnemy.transform.rotation, rotTowards * currentEnemy.transform.rotation, 0.5f));
         }
     }

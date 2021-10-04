@@ -43,6 +43,7 @@ public class Soldier : MonoBehaviour
 
     bool is_warmup = true;
     bool m_isDead = false;
+    public bool isDead { get => m_isDead; }
     public Action<Soldier> onIsDead = null;
     public Action<Soldier> onIsAlive = null;
 
@@ -183,6 +184,12 @@ public class Soldier : MonoBehaviour
     public void ApplyForce(Vector3 force, Vector3 position)
     {
         this.m_rigidbody.AddForceAtPosition(force * (1.0f - m_forceDefenceScale), position);
+
+        ConfigurableJoint js = this.gameObject.GetComponent<ConfigurableJoint>();
+        if(js != null)
+        {
+            Destroy(js);
+        }
     }
     #endregion
 }

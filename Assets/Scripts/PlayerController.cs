@@ -61,8 +61,6 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("Player is mmissing a camera!");
         m_cameraInitLocalPosition = m_camera.transform.localPosition;
 
-        m_controlCursor = GameObject.Instantiate(m_controlCursorPrefab);
-        m_pivotCursor = GameObject.Instantiate(m_controlCursorPrefab);
         //m_onMouseLeftDown += m_controlStick.DropStick;
         //m_onMouseLeftUp += m_controlStick.LiftStick;
         m_onMouseLeftDown += ToggleStick;
@@ -73,6 +71,12 @@ public class PlayerController : MonoBehaviour
 
         m_currentControlPoint = this.transform.position;
         m_groundMask = LayerMask.GetMask("Ground");
+    }
+
+    private void Start()
+    {
+        m_controlCursor = GameObject.Instantiate(m_controlCursorPrefab);
+        //m_pivotCursor = GameObject.Instantiate(m_controlCursorPrefab);
     }
 
     // Update is called once per frame
@@ -88,6 +92,8 @@ public class PlayerController : MonoBehaviour
             m_controlCursor.transform.position = m_currentControlPoint;
             m_controlStick.SetTargetStickGroundPosition(m_currentControlPoint.x, m_currentControlPoint.z);
         }
+
+        m_controlCursor.transform.rotation = Quaternion.Euler(0.0f, m_controlStick.m_rigidbody.transform.rotation.eulerAngles.y, 0.0f) * Quaternion.Euler(90.0f, 0.0f, 0.0f);
 
         // move the camera
 
