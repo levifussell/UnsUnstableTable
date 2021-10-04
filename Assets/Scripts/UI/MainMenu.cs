@@ -104,6 +104,7 @@ public class MainMenu : MonoBehaviour
     void StartLevel()
     {
         playerController.enabled = true;
+        playerController.LifStick();
         this.gameObject.SetActive(false);
         retryMenu.gameObject.SetActive(false);
 
@@ -161,6 +162,7 @@ public class MainMenu : MonoBehaviour
 
     void OnGameOver(bool playerWins)
     {
+        playerController.LifStick();
         playerController.enabled = false;
         dialogueMenu.enabled = false;
 

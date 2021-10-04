@@ -143,6 +143,11 @@ public class PlayerController : MonoBehaviour
         return hitData;
     }
 
+    public void LifStick()
+    {
+        m_controlStick.LiftStick();
+    }
+
     void ToggleStick()
     {
         if (m_controlStick.isPivoting) // no lifting the stick while pivoting.

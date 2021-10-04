@@ -20,8 +20,8 @@ public class TransitionMenu : MonoBehaviour
     RectTransform middleRect;
     RectTransform bottomRect;
 
-    float MIDDLE_OFFSET = Screen.width * 2.0f;
-    float BOTTOM_OFFSET = Screen.width * 4.0f;
+    float MIDDLE_OFFSET = Screen.width * 10.0f;
+    float BOTTOM_OFFSET = Screen.width * 10.0f;
 
     Vector2 TOP_OUT_TARGET;
     Vector2 MIDDLE_OUT_TARGET;
@@ -33,7 +33,7 @@ public class TransitionMenu : MonoBehaviour
         middleRect = flagMiddle.GetComponent<RectTransform>();
         bottomRect = flagBottom.GetComponent<RectTransform>();
 
-        TOP_OUT_TARGET = new Vector2(Screen.width*1.5f, 0.0f);
+        TOP_OUT_TARGET = new Vector2(Screen.width*1.5f + MIDDLE_OFFSET, 0.0f);
         MIDDLE_OUT_TARGET = new Vector2(Screen.width*1.5f + MIDDLE_OFFSET, 0.0f);
         BOTTOM_OUT_TARGET = new Vector2(Screen.width*1.5f + BOTTOM_OFFSET, 0.0f);
 

@@ -79,9 +79,11 @@ public class _EnemyAI : MonoBehaviour
 
     void AimAtTargets()
     {
-        //for(int i = 0; i < formationSpawnerEnemy.totalSoldiersCount; ++i)
         for(int i = 0; i < enemyTargetRebel.Count; ++i)
         {
+            if (formationSpawnerEnemy.m_spawnedSoldiers[i].isDead)
+                continue;
+
             Soldier currentEnemy = formationSpawnerEnemy.m_spawnedSoldiers[i];
             Soldier targetRebel = formationSpawnerRebel.m_spawnedSoldiers[enemyTargetRebel[i]];
             Vector3 noise = Vector3Extensions.RandomSphere(TARGET_NOISE);
