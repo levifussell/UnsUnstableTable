@@ -34,14 +34,15 @@ public class ChildColliderCallback : MonoBehaviour
     {
         if(onlyTriggerOnUniqueObjects)
         {
-            if (activeTriggerCollisions.ContainsKey(other.gameObject))
+            GameObject topObject = other.gameObject.GetTopmostParent();
+            if (activeTriggerCollisions.ContainsKey(topObject))
             {
-                activeTriggerCollisions[other.gameObject]++;
+                activeTriggerCollisions[topObject]++;
                 return;
             }
             else
             {
-                activeTriggerCollisions.Add(other.gameObject, 1);
+                activeTriggerCollisions.Add(topObject, 1);
             }
         }
 
@@ -52,13 +53,14 @@ public class ChildColliderCallback : MonoBehaviour
     {
         if(onlyTriggerOnUniqueObjects)
         {
-            if (activeTriggerCollisions.ContainsKey(other.gameObject))
+            GameObject topObject = other.gameObject.GetTopmostParent();
+            if (activeTriggerCollisions.ContainsKey(topObject))
             {
-                if (activeTriggerCollisions[other.gameObject] == 1)
-                    activeTriggerCollisions.Remove(other.gameObject);
+                if (activeTriggerCollisions[topObject] == 1)
+                    activeTriggerCollisions.Remove(topObject);
                 else
                 {
-                    activeTriggerCollisions[other.gameObject]--;
+                    activeTriggerCollisions[topObject]--;
                     return;
                 }
             }

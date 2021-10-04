@@ -1,21 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ControlStick : MonoBehaviour
 {
     #region parameters
-    [SerializeField] [Range(0.0f, 3000.0f)]
+    [SerializeField] [Range(0.0f, 10000.0f)]
     float m_springPositionStrength = 1000.0f;
-    [SerializeField] [Range(0.0f, 300.0f)]
+    [SerializeField] [Range(0.0f, 1000.0f)]
     float m_springPositionDamper = 100.0f;
-    [SerializeField] [Range(0.0f, 3000.0f)]
+    [SerializeField] [Range(0.0f, 10000.0f)]
     float m_springRotationStrength = 1000.0f;
-    [SerializeField] [Range(0.0f, 300.0f)]
+    [SerializeField] [Range(0.0f, 1000.0f)]
     float m_springRotationDamper = 100.0f;
+    [SerializeField] [Range(0.0f, 1000.0f)]
+    float m_positionForce = 100.0f;
+    [SerializeField] [Range(0.0f, 1000.0f)]
+    float m_rotationForce = 100.0f;
 
     [SerializeField]
     GameObject m_stickControlPoint = null;
+    [SerializeField]
+    GameObject m_stickObject = null;
     [SerializeField] [Range(0.0f, 1.0f)]
     float m_stickDownHeight = 0.1f;
     [SerializeField] [Range(0.0f, 1.0f)]
@@ -31,6 +40,11 @@ public class ControlStick : MonoBehaviour
 
     bool m_isStickUp = true;
     float m_stickTargetHeight = 0.0f;
+
+    [HideInInspector]
+    public Rigidbody m_rigidbody = null;
+    [HideInInspector]
+    public List<Rigidbody> m_containedSoldierRbs = new List<Rigidbody>();
 
     public Vector3 stickGroundForward
     {
@@ -55,9 +69,16 @@ public class ControlStick : MonoBehaviour
     private void Awake()
     {
         m_springJoint = this.GetComponentInChildren<ConfigurableJoint>();
-        m_springJoint.SetPdParamters(m_springPositionStrength, m_springPositionDamper, m_springRotationStrength, m_springRotationDamper, 100.0f);
+        m_springJoint.SetPdParamters(m_springPositionStrength, m_springPositionDamper, m_springRotationStrength, m_springRotationDamper, m_positionForce, m_rotationForce);
+
+        m_rigidbody = m_stickObject.GetComponent<Rigidbody>();
 
         m_stickTargetHeight = m_stickUpHeight;
+
+        ChildColliderCallback cc = m_stickObject.AddComponent<ChildColliderCallback>();
+        cc.onlyTriggerOnUniqueObjects = true;
+        cc.onTriggerEnterCallback += OnStickTriggerEnter;
+        cc.onTriggerExitCallback += OnStickTriggerExit;
     }
 
     // Update is called once per frame
@@ -67,6 +88,7 @@ public class ControlStick : MonoBehaviour
         {
             Quaternion controlAdjust = Quaternion.FromToRotation(stickGroundForward, stickGroundPivotDirection);
             m_stickControlPoint.transform.rotation *= controlAdjust;
+            m_currentPivotPosition = stickForwardPivotPosition;
         }
         else
         {
@@ -82,7 +104,39 @@ public class ControlStick : MonoBehaviour
         Gizmos.color = Color.black;
         Gizmos.DrawSphere(stickForwardPivotPosition, 0.05f);    
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(m_currentPivotPosition, 0.05f);    
+        Gizmos.DrawSphere(m_currentPivotPosition, 0.05f);
+
+#if UNITY_EDITOR
+        Handles.Label(m_currentPivotPosition + Vector3.up * 0.3f, string.Format("{0}", m_containedSoldierRbs.Count));
+#endif
+    }
+
+    private void OnStickTriggerEnter(Collider other, GameObject gameObject)
+    {
+        Soldier soldier = other.gameObject.GetComponentInParent<Soldier>();
+        if(soldier != null)
+        {
+            m_containedSoldierRbs.Add(soldier.GetComponent<Rigidbody>());
+        }
+    }
+    private void OnStickTriggerExit(Collider other, GameObject gameObject)
+    {
+        Soldier soldier = other.gameObject.GetComponentInParent<Soldier>();
+        if (soldier != null)
+        {
+            Rigidbody rb = soldier.GetComponent<Rigidbody>();
+            if (m_containedSoldierRbs.Contains(rb))
+            {
+                m_containedSoldierRbs.Remove(rb);
+
+                // remove a configurable body if it was left on there accidentally.
+                ConfigurableJoint js = rb.GetComponent<ConfigurableJoint>();
+                if (js != null)
+                    Destroy(js);
+            }
+            else
+                Debug.LogError("Tried to remove a soldier that wasn't added to the list!");
+        }
     }
     #endregion
 
@@ -95,7 +149,7 @@ public class ControlStick : MonoBehaviour
             posZ);
 
         // project the control point to the nearest point on the circle.
-        //if(isPivoting)
+        //if (isPivoting)
         //{
         //    m_stickControlPoint.transform.position = m_currentPivotPosition + (m_stickControlPoint.transform.position - m_currentPivotPosition).normalized * m_forwardPivotDistance;
         //}

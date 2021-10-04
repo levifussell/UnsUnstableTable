@@ -33,19 +33,20 @@ public static class ConfigurableJointExtensions
         this ConfigurableJoint joint,
         float positionSpring, float positionDamp,
         float rotationSpring, float rotationDamp,
-        float maximumForce)
+        float maximumPositionForce,
+        float maximumRotationForce)
     {
         JointDrive jd = new JointDrive();
         jd.positionSpring = positionSpring;
         jd.positionDamper = positionDamp;
-        jd.maximumForce = maximumForce;
+        jd.maximumForce = maximumPositionForce;
         joint.xDrive = jd;
         joint.yDrive = jd;
         joint.zDrive = jd;
         JointDrive sd = new JointDrive();
         sd.positionSpring = rotationSpring;
         sd.positionDamper = rotationDamp;
-        sd.maximumForce = maximumForce;
+        sd.maximumForce = maximumRotationForce;
         joint.slerpDrive = sd;
         joint.rotationDriveMode = RotationDriveMode.Slerp;
     }
@@ -78,6 +79,7 @@ public static class ConfigurableJointExtensions
         connectJoint.SetPdParamters(
             positionSpring, positionDamp,
             rotationSpring, rotationDamp,
+            maximumForce,
             maximumForce);
     }
 

@@ -16,6 +16,8 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     GameObject mainMenuLevel = null;
     [SerializeField]
     TransitionMenu transitionMenu = null;
+    [SerializeField]
+    DialogueMenu dialogueMenu = null;
     #endregion
 
     #region variables
@@ -41,7 +43,7 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Start is called before the first frame update
     void Start()
     {
-        
+        dialogueMenu.enabled = false;
     }
 
     // Update is called once per frame
@@ -68,6 +70,8 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         // spawn new level.
         GameObject.Instantiate(mainMenuLevel);
+
+        dialogueMenu.enabled = true;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

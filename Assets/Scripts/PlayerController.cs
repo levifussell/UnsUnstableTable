@@ -67,7 +67,9 @@ public class PlayerController : MonoBehaviour
         //m_onMouseLeftUp += m_controlStick.LiftStick;
         m_onMouseLeftDown += ToggleStick;
         m_onMouseRightDown += EnablePivoting;
+        m_onMouseRightDown += LockContainedSoldiersToStick;
         m_onMouseRightUp += DisablePivoting;
+        m_onMouseRightUp += UnlockContainedSoldiersToStick;
 
         m_currentControlPoint = this.transform.position;
         m_groundMask = LayerMask.GetMask("Ground");
@@ -137,6 +139,9 @@ public class PlayerController : MonoBehaviour
 
     void ToggleStick()
     {
+        if (m_controlStick.isPivoting) // no lifting the stick while pivoting.
+            return;
+
         if (!m_stickToggle)
             m_controlStick.DropStick();
         else
@@ -152,6 +157,25 @@ public class PlayerController : MonoBehaviour
     void DisablePivoting()
     {
         m_controlStick.isPivoting = false;
+    }
+    
+    void LockContainedSoldiersToStick()
+    {
+        foreach(Rigidbody rb in m_controlStick.m_containedSoldierRbs)
+        {
+            ConfigurableJoint js = rb.gameObject.AddComponent<ConfigurableJoint>();
+            js.connectedBody = m_controlStick.m_rigidbody;
+            js.SetAllJointMotions(ConfigurableJointMotion.Locked);
+        }
+    }
+
+    void UnlockContainedSoldiersToStick()
+    {
+        foreach(Rigidbody rb in m_controlStick.m_containedSoldierRbs)
+        {
+            ConfigurableJoint js = rb.gameObject.GetComponent<ConfigurableJoint>();
+            Destroy(js);
+        }
     }
 
     #endregion

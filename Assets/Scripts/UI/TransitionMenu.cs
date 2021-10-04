@@ -66,7 +66,7 @@ public class TransitionMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         float distTopRect = Mathf.Abs(0.0f - bottomRect.anchoredPosition.x);
-        float moveRate = 0.06f;
+        float moveRate = 0.09f;
         while (distTopRect > Screen.width * 0.01f)
         {
             topRect.anchoredPosition += (Vector2.zero - topRect.anchoredPosition) * moveRate;
