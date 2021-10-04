@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8914774273595555441
+--- !u!1 &1444904460645468573
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,115 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8914774273595555440}
-  m_Layer: 0
-  m_Name: Lvl5_spawns
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8914774273595555440
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914774273595555441}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 54.26, y: 0.17729115, z: -0.42}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8914774274174024737}
-  - {fileID: 8914774273809821372}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8914774273809821373
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8914774273809821372}
-  - component: {fileID: 8914774273809821375}
-  m_Layer: 0
-  m_Name: kims
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8914774273809821372
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914774273809821373}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029206271}
-  m_LocalPosition: {x: 0.4, y: -0.0100905895, z: 7.78}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8914774273595555440}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
---- !u!114 &8914774273809821375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914774273809821373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soldierGunPrefab: {fileID: 691596461483013228, guid: 59a830e2819a66b4bb3a42f9b5aa8c82,
-    type: 3}
-  soldierShieldPrefab: {fileID: 5247910740472811153, guid: 8d47aa05f3445f449b50e4a75664ea63,
-    type: 3}
-  soldierFlagPrefab: {fileID: 5503666464139557486, guid: 938c4450a555df54d87d410b9da9e405,
-    type: 3}
-  soldierGunSpawnPoints:
-  - {x: 1.5821759, y: -0.16720057, z: 4.1233892}
-  - {x: -1.2173125, y: -0.16720057, z: 4.0775967}
-  - {x: 0.2, y: 0, z: 0}
-  - {x: 0.5648422, y: -0.16720057, z: 0.9228249}
-  - {x: -1.2674465, y: -0.16720057, z: -0.06886028}
-  - {x: -0.8458673, y: -0.16720057, z: 7.4302716}
-  - {x: 1.5709964, y: -0.16720057, z: 5.678407}
-  soldierGunSpawnRotations:
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  soldierShieldSpawnPoints:
-  - {x: 1.2, y: 0, z: 0}
-  soldierShieldSpawnRotations:
-  - {x: 0, y: 0, z: 0, w: 0}
-  soldierFlagSpawnPoints:
-  - {x: 1.500206, y: -0.16720057, z: -0.3813855}
-  soldierFlagSpawnRotations:
-  - {x: 0, y: 0, z: 0, w: 0}
-  isPlayer: 0
-  m_spawnedSoldiers: []
---- !u!1 &8914774274174024742
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8914774274174024737}
-  - component: {fileID: 8914774274174024736}
+  - component: {fileID: 1444904460645468570}
+  - component: {fileID: 1444904460645468571}
   m_Layer: 0
   m_Name: rebels
   m_TagString: Untagged
@@ -124,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8914774274174024737
+--- !u!4 &1444904460645468570
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914774274174024742}
+  m_GameObject: {fileID: 1444904460645468573}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.06948686, y: -0.0100905895, z: -1.6727308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8914774273595555440}
+  m_Father: {fileID: 1444904462299450315}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8914774274174024736
+--- !u!114 &1444904460645468571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914774274174024742}
+  m_GameObject: {fileID: 1444904460645468573}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
@@ -166,3 +59,110 @@ MonoBehaviour:
   soldierFlagSpawnRotations: []
   isPlayer: 1
   m_spawnedSoldiers: []
+--- !u!1 &1444904462084856582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1444904462084856583}
+  - component: {fileID: 1444904462084856580}
+  m_Layer: 0
+  m_Name: kims
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1444904462084856583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444904462084856582}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029206271}
+  m_LocalPosition: {x: 0.4, y: -0.0100905895, z: 7.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1444904462299450315}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+--- !u!114 &1444904462084856580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444904462084856582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915d79a17ee6d7844a22e1ba194ced8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soldierGunPrefab: {fileID: 691596461483013228, guid: 59a830e2819a66b4bb3a42f9b5aa8c82,
+    type: 3}
+  soldierShieldPrefab: {fileID: 5247910740472811153, guid: 8d47aa05f3445f449b50e4a75664ea63,
+    type: 3}
+  soldierFlagPrefab: {fileID: 5503666464139557486, guid: 938c4450a555df54d87d410b9da9e405,
+    type: 3}
+  soldierGunSpawnPoints:
+  - {x: 1.5821759, y: -0.16720057, z: 4.1233892}
+  - {x: -1.2173125, y: -0.16720057, z: 4.0775967}
+  - {x: 0.2, y: 0, z: 0}
+  - {x: 0.5648422, y: -0.16720057, z: 0.9228249}
+  - {x: -1.2674465, y: -0.16720057, z: -0.06886028}
+  - {x: -0.8458673, y: -0.16720057, z: 7.4302716}
+  - {x: 1.5709964, y: -0.16720057, z: 5.678407}
+  soldierGunSpawnRotations:
+  - {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+  - {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  - {x: 0, y: -0.1636699, z: 0, w: 0.98651516}
+  - {x: 0, y: -0.23153597, z: 0, w: 0.97282636}
+  - {x: 0, y: 0.17758247, z: 0, w: 0.98410594}
+  - {x: 0, y: 0.076548085, z: 0, w: 0.9970659}
+  - {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+  soldierShieldSpawnPoints:
+  - {x: 1.2, y: 0, z: 0}
+  soldierShieldSpawnRotations:
+  - {x: 0, y: -0.3473515, z: 0, w: 0.937735}
+  soldierFlagSpawnPoints:
+  - {x: 1.500206, y: -0.16720057, z: -0.3813855}
+  soldierFlagSpawnRotations:
+  - {x: 0, y: -0.27772462, z: 0, w: 0.96066076}
+  isPlayer: 0
+  m_spawnedSoldiers: []
+--- !u!1 &1444904462299450314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1444904462299450315}
+  m_Layer: 0
+  m_Name: Lvl5_spawns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1444904462299450315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444904462299450314}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 54.26, y: 0.17729115, z: -0.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1444904460645468570}
+  - {fileID: 1444904462084856583}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
