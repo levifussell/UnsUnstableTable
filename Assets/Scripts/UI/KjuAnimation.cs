@@ -30,6 +30,8 @@ public class KjuAnimation : MonoBehaviour
     float m_periodSwitchRate = 0.3f;
     float m_timer = 0.0f;
 
+    Vector2 m_initPosition;
+
     private void Awake()
     {
         m_baseRect = this.GetComponent<RectTransform>();
@@ -38,6 +40,8 @@ public class KjuAnimation : MonoBehaviour
         m_basePos = m_faceRect.anchoredPosition;
 
         m_baseRotation = m_faceRect.transform.rotation;
+
+        m_initPosition = m_baseRect.anchoredPosition;
     }
 
     private void Update()
@@ -72,5 +76,16 @@ public class KjuAnimation : MonoBehaviour
         m_faceOffset = upPlane * Mathf.Sin(Time.time * 3.0f) * 10.0f;
         m_faceRotOffset = Quaternion.Euler(0.0f, 0.0f, Mathf.Sin(Time.time * 4.0f) * 7.0f);
 
+    }
+
+    public void Reset()
+    {
+        m_baseRect.anchoredPosition = m_initPosition;
+    }
+
+    public void SetColor(Color color)
+    {
+        m_imageFace.color = color;
+        m_imageJaw.color = color;
     }
 }

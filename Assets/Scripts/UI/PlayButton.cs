@@ -9,6 +9,9 @@ public class PlayButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     #region variables
     RectTransform rectTransform;
     Text text;
+
+    Vector2 initRect;
+    Color initColor;
     #endregion
 
     #region builtins
@@ -16,6 +19,9 @@ public class PlayButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         rectTransform = this.GetComponent<RectTransform>();
         text = this.GetComponentInChildren<Text>();
+
+        initRect = rectTransform.sizeDelta;
+        initColor = text.color;
     }
     #endregion
 
@@ -83,6 +89,12 @@ public class PlayButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         rectTransform.sizeDelta = toSize;
         text.color = toColor;
+    }
+
+    public void Reset()
+    {
+        rectTransform.sizeDelta = initRect;
+        text.color = initColor;
     }
 
     #endregion

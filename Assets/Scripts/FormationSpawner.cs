@@ -150,6 +150,8 @@ public class FormationSpawner : MonoBehaviour
             if(soldier != null)
                 Destroy(soldier.gameObject);
         }
+
+        m_spawnedSoldiers.Clear();
     }
     #endregion
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class MainMenu : MonoBehaviour
 {
 
     #region parameters
@@ -20,6 +20,10 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     DialogueMenu dialogueMenu = null;
     [SerializeField]
     HudMenu hudMenu = null;
+    [SerializeField]
+    RetryMenu retryMenu = null;
+    [SerializeField]
+    KjuAnimation kjuAnimation = null;
 
     [Header("Hub References")]
     [SerializeField]
@@ -42,14 +46,16 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Awake()
     {
-        //RectTransform r = playButton.GetComponent<RectTransform>();
-        //r.localScale *= 2.0f;
-        //r.sizeDelta = new Vector2(10.0f, 100.0f);
         playButton.onClick.AddListener(OnPlayClick);
         playerController.enabled = false;
 
         transitionMenu.gameObject.SetActive(true);
         hudMenu.gameObject.SetActive(false);
+        hudMenu.onGameOver += OnGameOver;
+
+        retryMenu.gameObject.SetActive(false);
+        retryMenu.enabled = false;
+        retryMenu.menuButton.onClick.AddListener(OnMenuClick);
 
         //m_levelState = GameObject.Instantiate(mainMenuLevel);
 
@@ -83,10 +89,23 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         transitionMenu.Transition();
     }
 
+    void OnPlayNextLevelClick()
+    {
+        hubController.NextLevel();
+        OnPlayClick();
+    }
+
+    void OnMenuClick()
+    {
+        transitionMenu.onTransitionEnd += StartMenu;
+        transitionMenu.Transition();
+    }
+
     void StartLevel()
     {
         playerController.enabled = true;
         this.gameObject.SetActive(false);
+        retryMenu.gameObject.SetActive(false);
 
         // close current level.
 
@@ -95,29 +114,59 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         // spawn new level.
         //GameObject.Instantiate(mainMenuLevel);
-        GameObject level = GameObject.Instantiate(levelFormations[hubController.currentLevelIndex]);
-        level.transform.position = hubController.currentLevelOrigin;
+        if (m_levelState != null)
+        {
+            foreach(FormationSpawner sp in m_levelState.GetComponentsInChildren<FormationSpawner>())
+            {
+                sp.UnspawnAndDestroyAllSoldiers();
+            }
+        }
+        m_levelState = GameObject.Instantiate(levelFormations[hubController.currentLevelIndex]);
+        m_levelState.transform.position = hubController.currentLevelOrigin;
 
         dialogueMenu.enabled = true;
 
         hudMenu.gameObject.SetActive(true);
-        hudMenu.SetupNewLevelHud(level);
+        hudMenu.SetupNewLevelHud(m_levelState);
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    void StartMenu()
     {
-        //RectTransform r = playButton.GetComponent<RectTransform>();
-        //r.localScale = new Vector3(2.0f, 0.0f);
-        //r.sizeDelta = new Vector2(10.0f, 100.0f);
+        kjuAnimation.Reset();
+
+        playerController.enabled = false;
+        playButton.GetComponent<PlayButton>().Reset();
+        this.gameObject.SetActive(true);
+        retryMenu.gameObject.SetActive(false);
+
+        ProjectileDeathManager.Instance.DestroyAllProjectiles();
+
+        if (m_levelState != null)
+            Destroy(m_levelState);
+
+        dialogueMenu.enabled = false;
+
+        hudMenu.gameObject.SetActive(false);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+
+    void OnGameOver(bool playerWins)
     {
-        //RectTransform r = playButton.GetComponent<RectTransform>();
-        //r.localScale = new Vector3(0.5f, 0.0f);
-        //r.sizeDelta = new Vector2(10.0f, 300.0f);
+        playerController.enabled = false;
+        dialogueMenu.enabled = false;
+
+        ProjectileDeathManager.Instance.DestroyAllProjectiles();
+
+        retryMenu.gameObject.SetActive(true);
+        retryMenu.enabled = true;
+        retryMenu.NewGameOver(playerWins);
+
+        retryMenu.retryButton.onClick.RemoveListener(OnPlayClick);
+        retryMenu.retryButton.onClick.RemoveListener(OnPlayNextLevelClick);
+        if(playerWins)
+            retryMenu.retryButton.onClick.AddListener(OnPlayNextLevelClick);
+        else
+            retryMenu.retryButton.onClick.AddListener(OnPlayClick);
     }
 
-    #region controls
-    #endregion
 }
