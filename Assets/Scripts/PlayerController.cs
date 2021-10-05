@@ -145,6 +145,8 @@ public class PlayerController : MonoBehaviour
 
     public void LifStick()
     {
+        m_stickToggle = false;
+        m_controlStick.isPivoting = false;
         m_controlStick.LiftStick();
     }
 
