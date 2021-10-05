@@ -11,6 +11,9 @@
 ---
 ---
 
+LD49 page: https://ldjam.com/events/ludum-dare/49/uns-unstable-table
+Play in the browser: https://leefu.itch.io/uns-unstable-table
+
 What's more unstable than Kim Jong Un himself? Kim Jong Un's unstable table!
 
 Fight your way through North Korea in an intense physics based, tactical, tabletop battle. Lead your rebel soldiers to victory by overthrowing the dictator that is Kim Jong Un and bring peace and prosperity to the world.
