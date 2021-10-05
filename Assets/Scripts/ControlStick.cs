@@ -159,7 +159,7 @@ public class ControlStick : MonoBehaviour
     {
         if (m_isStickUp)
         {
-            Debug.LogError("Stick is already up.");
+            //Debug.LogError("Stick is already up.");
             return;
         }
 
@@ -170,7 +170,7 @@ public class ControlStick : MonoBehaviour
     {
         if (!m_isStickUp)
         {
-            Debug.LogError("Stick is already dropped.");
+            //Debug.LogError("Stick is already dropped.");
             return;
         }
 

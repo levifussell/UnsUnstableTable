@@ -41,6 +41,11 @@ public class TransitionMenu : MonoBehaviour
         //StartCoroutine(TransitionStage1());
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -51,7 +56,7 @@ public class TransitionMenu : MonoBehaviour
 
     void TransitionReset()
     {
-        topRect.anchoredPosition = new Vector2(-Screen.width - MIDDLE_OFFSET * 2.0f, 0.0f);
+        topRect.anchoredPosition = new Vector2(-Screen.width - MIDDLE_OFFSET * 1.0f, 0.0f);
         middleRect.anchoredPosition = new Vector2(-Screen.width - MIDDLE_OFFSET, 0.0f);
         bottomRect.anchoredPosition = new Vector2(-Screen.width - BOTTOM_OFFSET, 0.0f);
     }
@@ -59,12 +64,13 @@ public class TransitionMenu : MonoBehaviour
     public void Transition()
     {
         TransitionReset();
+        StopAllCoroutines();
         StartCoroutine(TransitionStage1());
     }
 
     IEnumerator TransitionStage1()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.4f);
         float distTopRect = Mathf.Abs(0.0f - bottomRect.anchoredPosition.x);
         float moveRate = 0.09f;
         while (distTopRect > Screen.width * 0.01f)

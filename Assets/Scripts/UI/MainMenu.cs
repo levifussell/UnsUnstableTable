@@ -85,6 +85,8 @@ public class MainMenu : MonoBehaviour
 
     void OnPlayClick()
     {
+        playButton.interactable = false;
+        retryMenu.retryButton.interactable = false;
         transitionMenu.onTransitionEnd += StartLevel;
         transitionMenu.Transition();
     }
@@ -97,6 +99,8 @@ public class MainMenu : MonoBehaviour
 
     void OnMenuClick()
     {
+        retryMenu.retryButton.interactable = false;
+        retryMenu.menuButton.interactable = false;
         transitionMenu.onTransitionEnd += StartMenu;
         transitionMenu.Transition();
     }
@@ -145,6 +149,7 @@ public class MainMenu : MonoBehaviour
         kjuAnimation.Reset();
 
         playerController.enabled = false;
+        playButton.interactable = true;
         playButton.GetComponent<PlayButton>().Reset();
         this.gameObject.SetActive(true);
         retryMenu.gameObject.SetActive(false);
@@ -164,6 +169,8 @@ public class MainMenu : MonoBehaviour
     {
         playerController.LifStick();
         playerController.enabled = false;
+        retryMenu.retryButton.interactable = true;
+        retryMenu.menuButton.interactable = true;
         dialogueMenu.enabled = false;
 
         ProjectileDeathManager.Instance.DestroyAllProjectiles();
